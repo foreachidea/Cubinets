@@ -1,5 +1,6 @@
 import FreeCAD as App
 from PySide2 import QtWidgets
+import os
 
 PARAM_PATH = "User parameter:BaseApp/Mod/Cubinets"
 
@@ -17,7 +18,7 @@ class SettingsDialog(QtWidgets.QDialog):
         folder_layout = QtWidgets.QHBoxLayout()
 
         self.folder_edit = QtWidgets.QLineEdit()
-        self.folder_edit.setText(self.params.GetString("TemplateFolder", ""))
+        self.folder_edit.setText(self.params.GetString("TemplateFolder", os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'templates')))
 
         browse_btn = QtWidgets.QPushButton("Browse…")
         browse_btn.clicked.connect(self.browse_folder)

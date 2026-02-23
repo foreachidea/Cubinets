@@ -41,7 +41,7 @@ class cmdAssemble:
         target_doc = App.ActiveDocument
         params = App.ParamGet("User parameter:BaseApp/Mod/Cubinets")
         
-        TEMPLATE_DIR = params.GetString("TemplateFolder", "")
+        TEMPLATE_DIR = params.GetString("TemplateFolder", os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'templates'))
 
         top_row_z = 2000.0
         top_row_y = 2000.0

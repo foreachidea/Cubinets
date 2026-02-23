@@ -8,7 +8,9 @@ class CubinetsWorkbench(Gui.Workbench):
     def Initialize(self):
         import cmdScan, cmdAssemble, cmdCutList, cmdSettings
 
-        self.list = ["cmdAssemble", "cmdCutList", "cmdSettings"]
+        # hiding settings for demo; settings must be reviewed
+        #self.list = ["cmdAssemble", "cmdCutList", "cmdSettings"]
+        self.list = ["cmdAssemble", "cmdCutList"]
         self.appendToolbar("My Commands", self.list) # creates a new toolbar with your commands
         self.appendMenu("My New Menu", self.list) # creates a new menu
 
