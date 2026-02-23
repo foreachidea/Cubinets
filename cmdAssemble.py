@@ -5,6 +5,7 @@ import random
 from collections import defaultdict
 from Freezer import Freezer
 from PySide2 import QtCore
+import shutil
 
 class cmdAssemble:
 
@@ -273,17 +274,33 @@ class cmdAssemble:
                     row += 1
                     continue
 
-                if name in App.listDocuments():
+
+                temp_opened = None
+                temp_path = os.path.normcase(os.path.normpath(os.path.abspath(path)))
+                
+                for opened_doc in App.listDocuments().values():
+                    if not opened_doc.FileName:
+                        continue  # skip unsaved docs
+
+                    opened_doc_path = os.path.normcase(os.path.normpath(opened_doc.FileName))
+
+                    if opened_doc_path == temp_path:
+                        temp_opened = opened_doc
+                        break
+                
+                if temp_opened:
+                #if filename in App.listDocuments().values():
 
                     # fix: firslty always find and copy over the sheet. geometry might get capricious without it.
 
-                    byte_string = random.randbytes(16)
+                    byte_string = random.randbytes(8)
                     rand_hex = byte_string.hex()
-
-                    opened_doc = App.getDocument(name)
+                    '''
+                    #opened_doc = App.getDocument(name)
                     tpl = App.newDocument(name + "_" + rand_hex)
 
-                    for obj in opened_doc.Objects:
+                    #for obj in opened_doc.Objects:
+                    for obj in temp_opened.Objects:
                         if obj.TypeId == "Spreadsheet::Sheet":
                             copy_obj = tpl.copyObject(obj, False)
                             for r in range(1, get_row_count(obj) + 1):
@@ -309,7 +326,11 @@ class cmdAssemble:
                             copy_obj.Label = obj.Label
 
                     tpl.recompute()                                 
-
+                    '''
+                    dest = os.path.normcase(os.path.normpath(App.getTempPath() + f"{rand_hex}_" + os.path.basename(opened_doc.FileName)))
+                    App.Console.PrintMessage(f"{dest}")
+                    shutil.copy(opened_doc_path, dest, follow_symlinks=True)
+                    tpl = App.openDocument(dest, hidden=True)
                 else:
                     tpl = App.openDocument(path, hidden=True)
 
@@ -364,6 +385,9 @@ class cmdAssemble:
                 extracted = extract_visible_cubes(tpl)
 
                 App.closeDocument(tpl.Name)
+
+                if os.path.exists(dest):
+                    os.remove(dest)
 
                 # 4️⃣ Bake into target document
                 #target_doc = App.ActiveDocument
