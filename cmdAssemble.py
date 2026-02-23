@@ -21,20 +21,20 @@ class cmdAssemble:
         sel = App.Gui.Selection.getSelection()
 
         if not sel:
-            App.Console.PrintError("No spreadseet selected\n")
+            App.Console.PrintError("[ ] Cubinets: No spreadseet selected\n")
             return
 
         if len(sel) > 1:
-            App.Console.PrintError("More than one object selected. Please select only one spreadsheet.\n")
+            App.Console.PrintError("[ ] Cubinets: More than one object selected. Please select only one spreadsheet.\n")
             return
 
         ASM = sel[0]
         if ASM.TypeId != "Spreadsheet::Sheet":
-            App.Console.PrintError("Selected object is not a spreadsheet\n")
+            App.Console.PrintError("[ ] Cubinets: Selected object is not a spreadsheet\n")
             return
 
         if ASM is None:
-            App.Console.PrintError("Assembly spreadsheet not found\n")
+            App.Console.PrintError("[ ] Cubinets: Assembly spreadsheet not found\n")
             return
 
 
@@ -100,7 +100,7 @@ class cmdAssemble:
 
             for obj in doc.Objects:
 
-                App.Console.PrintMessage(f"Label: {obj.Label}, TypeId: {obj.TypeId}, Class: {type(obj)}\n")
+                #App.Console.PrintMessage(f"Label: {obj.Label}, TypeId: {obj.TypeId}, Class: {type(obj)}\n")
                 
                 if not is_visible(obj):
                     continue
@@ -240,8 +240,13 @@ class cmdAssemble:
                 raise ValueError(f"Column '{col_letters}' exceeds ZZ")
 
         row_count = get_row_count(ASM)        
-        App.Console.PrintError(f"{row_count}\n")
+        
         with Freezer(profile="geometry", steps=row_count, cancel=False) as guiFreezer:
+
+            # todo: fix: status bar must be drawn on show
+            # update must only be used in the end of the cycle
+            # it is used here to draw the status bar. dirty, but better this way for demo. and staus update percentage shown prematurely 
+            guiFreezer.update(unit, f"Creating box {unit}")
 
             while True:
 
@@ -270,12 +275,13 @@ class cmdAssemble:
                 path = os.path.join(TEMPLATE_DIR, f"{name}.FCStd")
 
                 if not os.path.exists(path):
-                    App.Console.PrintError(f"Missing template: {name}\n")
+                    App.Console.PrintError(f"[ ] Cubinets: Template: {name} not found.\n")
                     row += 1
                     continue
 
 
                 temp_opened = None
+                dest = None
                 temp_path = os.path.normcase(os.path.normpath(os.path.abspath(path)))
                 
                 for opened_doc in App.listDocuments().values():
@@ -328,7 +334,7 @@ class cmdAssemble:
                     tpl.recompute()                                 
                     '''
                     dest = os.path.normcase(os.path.normpath(App.getTempPath() + f"{rand_hex}_" + os.path.basename(opened_doc.FileName)))
-                    App.Console.PrintMessage(f"{dest}")
+                    
                     shutil.copy(opened_doc_path, dest, follow_symlinks=True)
                     tpl = App.openDocument(dest, hidden=True)
                 else:
@@ -347,7 +353,7 @@ class cmdAssemble:
                         try:
                             width = float(width)
                         except Exception as e:
-                            App.Console.PrintError(f"Invalid numeric value in B1: {width}\n")
+                            App.Console.PrintError(f"[ ] Cubinets: Invalid numeric value in B1: \"{width}\"; Unit width expected. \n")
                             raise
 
 
@@ -386,7 +392,7 @@ class cmdAssemble:
 
                 App.closeDocument(tpl.Name)
 
-                if os.path.exists(dest):
+                if dest is not None and os.path.exists(dest):
                     os.remove(dest)
 
                 # 4️⃣ Bake into target document
@@ -420,7 +426,7 @@ class cmdAssemble:
 
                 guiFreezer.update(unit, f"Creating box {unit}")
 
-        App.Console.PrintMessage("Cabinet assembly complete\n")
+        App.Console.PrintMessage("[ ] Cubinets: Cabinet assembly complete!\n")
 
 
         DOC.recompute()
@@ -467,7 +473,7 @@ class cmdAssemble:
                             mdi.setActiveSubWindow(sub)
                             sub.raise_()
                             sub.show()
-                            print(f"Focused document: {doc_name}")
+                            #print(f"Focused document: {doc_name}")
                             return
 
                 # Direct view
@@ -475,7 +481,7 @@ class cmdAssemble:
                     mdi.setActiveSubWindow(sub)
                     sub.raise_()
                     sub.show()
-                    print(f"Focused document: {doc_name}")
+                    #print(f"Focused document: {doc_name}")
                     return
 
             # fallback: raise the first MDI subwindow for this doc
@@ -484,10 +490,10 @@ class cmdAssemble:
                     mdi.setActiveSubWindow(sub)
                     sub.raise_()
                     sub.show()
-                    print(f"Focused document by window title fallback: {doc_name}")
+                    #print(f"Focused document by window title fallback: {doc_name}")
                     return
 
-            print(f"Could not find MDI window for document: {doc_name}")
+            #print(f"Could not find MDI window for document: {doc_name}")
 
         focus_document_view(DOC.Name)
         

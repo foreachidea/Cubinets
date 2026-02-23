@@ -91,7 +91,7 @@ class Freezer:
                  cancel=False,
                  transaction="auto",
                  custom=None,
-                 debug=True):
+                 debug=False):
 
         self.profile = profile
         self.steps = steps
@@ -155,9 +155,7 @@ class Freezer:
         Freezer._depth += 1
 
         if self.debug:
-            App.Console.PrintMessage(
-                f"[Freezer] Enter '{self.profile}' depth={Freezer._depth}\n"
-            )
+            App.Console.PrintMessage(f"[Freezer] Enter '{self.profile}' depth={Freezer._depth}\n")
 
         # If nested, do nothing except allow status updates
         if Freezer._depth > 1:
