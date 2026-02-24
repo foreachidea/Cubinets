@@ -15,10 +15,11 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
+- [Donate](#donate)
 - [License](#license)
 
-<a name="installation"/>
-## 🛠️ Installation
+
+## 🛠️ Installation <a name="installation"/>
 
 - ✅ Install FreeCAD from the official website - https://www.freecad.org
 - ✅ Download Cubinets latest release - https://github.com/vyt4ut4s/Cubinets/releases/latest
@@ -28,8 +29,8 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
   - On **Linux** it is usually /usr/share/freecad/Mod/
     - For snap versions (for instance on Ubuntu) it is $HOME/snap/freecad/common/Mod/
 
-<a name="usage"/>
-## 👨‍💻 Usage
+
+## 👨‍💻 Usage <a name="usage"/>
 
 **video: how to use**
 **video: how to design a parametric template**
@@ -39,6 +40,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 |---|---|
 | `void` | creates a void in the assembly of a certain width; eg.: space for a cooker, fireplace, dreams and imagination, etc. |
 | empty row | indicates a new row of units; currently only 2 rows implemented. |
+
 
 ### Provided Templates
 
@@ -51,6 +53,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 > [!TIP]
 > Users are welcome to Design and use own Parametric Templates.
 
+
 ### Parameters
 
 | Name | | | | | | | | | | | |
@@ -60,9 +63,11 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 | `cubinet double` | unit width | unit height | unit depth | material thickness | door margin |
 | `cubinet drawer` | unit width | unit height | unit depth | material thickness | door margin | top panel depth (%) | drawer face height | drawer box height | drawer box bottom margin | drawer box material thickness | drawer box rail width |
 
+
 ### Example Kitchen Assembly
 
 copy/paste these values to a "params" spreadsheet and click Assemble 
+
 ```
 void	400										
 cubinet	400	700	300	18	2						
@@ -78,16 +83,18 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 ```
 
+
 ### Template Design Conventions
 
 **conventions**
 
-<a name="roadmap"/>
-## 🎯 Roadmap
+
+## 🎯 Roadmap <a name="roadmap"/>
 
 ### ✅ Current Version (v0.1.0-demo)
 - ✅ Visualise Cabinet Assemblies using predesigned Parametric Templates
 - ✅ Generate Part Cutlist
+
 
 ### 🔄 Upcoming (v1.0)
 - 🔄 Complete code rewrite: spagetti to a readable, scaleable and extendible code
@@ -96,11 +103,13 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 - 🔄 New Template features
 - 🔄 New Templates
 
+
 ### 💡 Ideas
 - 💡 Quality Visual Renderings
 - 💡 CNC automation
 
-## ❤️ Donate
+
+## ❤️ Donate <a name="donate"/>
 
 ### 🌱 Help this project grow
  - ☕ If you like this sofware, buy me a coffee.
@@ -108,8 +117,8 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 
 **donate button**
 
-<a name="license"/>
-## 📝 License
+
+## 📝 License <a name="license"/>
 
 This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE).
 
