@@ -228,7 +228,8 @@ class Freezer:
 
         # Freeze 3D view redraw
         if self.config["freeze_view"] and self.view:
-            self.view.setUpdatesEnabled(False)
+            # todo: fix. it fails try. maybe because sheet is active?
+            #self.view.setUpdatesEnabled(False)
             self._view_frozen = True
 
         # Transaction handling
@@ -256,7 +257,9 @@ class Freezer:
 
         # Restore view
         if self._view_frozen and self.view:
-            self.view.setUpdatesEnabled(True)
+            # todo: fix. it fails try. maybe because sheet is active?
+            #self.view.setUpdatesEnabled(True)
+            self._view_frozen = False
 
         # Commit transaction
         if self._transaction_opened and self.doc:
