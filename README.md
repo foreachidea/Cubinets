@@ -17,6 +17,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 - [Roadmap](#roadmap)
 - [License](#license)
 
+<a name="installation"/>
 ## 🛠️ Installation
 
 - ✅ Install FreeCAD from the official website - https://www.freecad.org
@@ -27,6 +28,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
   - On **Linux** it is usually /usr/share/freecad/Mod/
     - For snap versions (for instance on Ubuntu) it is $HOME/snap/freecad/common/Mod/
 
+<a name="usage"/>
 ## 👨‍💻 Usage
 
 **video: how to use**
@@ -80,6 +82,7 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 
 **conventions**
 
+<a name="roadmap"/>
 ## 🎯 Roadmap
 
 ### ✅ Current Version (v0.1.0-demo)
@@ -101,10 +104,11 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 
 ### 🌱 Help this project grow
  - ☕ If you like this sofware, buy me a coffee.
- -  🧩If you find it usefull in your proffesional activities, consider donating a larger sum. 
+ - 🧩 If you find it usefull in your proffesional activities, consider donating a larger sum. 
 
 **donate button**
 
+<a name="license"/>
 ## 📝 License
 
 This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE).
