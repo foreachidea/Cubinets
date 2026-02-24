@@ -5,7 +5,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 
 ## 🔥Concept Demo
 
-![concept demo](https://raw.githubusercontent.com/vy4ut4s/media/Cubinets/concept_demo.gif)
+![concept demo](https://vyt4ut4s.github.io/media/Cubinets/concept_demo.gif)
 
 
 ## 🔥Parametric Template design Demo
