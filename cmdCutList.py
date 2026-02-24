@@ -16,12 +16,14 @@ class cmdCutList:
         DOC = App.ActiveDocument
 
         # --- Step 1: Create or get Spreadsheet ---
+        '''
         sheet_name = "Cut List"
         ss = DOC.getObject(sheet_name)
         if ss is None:
             ss = DOC.addObject("Spreadsheet::Sheet", sheet_name)
         ss.clearAll()  # remove old data
-
+        '''
+        ss = DOC.addObject("Spreadsheet::Sheet", "cut list")
         # todo: if file exsists, confirm overwrite
 
         '''
@@ -86,7 +88,7 @@ class cmdCutList:
         }
         
         params = App.ParamGet("User parameter:BaseApp/Mod/Cubinets")
-        plane = params.GetString("WorkingPlane", "xz")
+        plane = params.GetString("WorkingPlane", "xy")
         i_w, i_h, i_d = AXIS_MAP[plane]
         sort = params.GetBool("CutlistSortByDimension", False)
         group = params.GetBool("CutlistGroupByThickness", True)
@@ -140,7 +142,9 @@ class cmdCutList:
                 row += 1
         
         DOC.recompute()
-        print(f"Cut list written to spreadsheet '{sheet_name}'")
+        Gui.Selection.addSelection(ss)
+        Gui.ActiveDocument.setEdit(ss)
+        #print(f"Cut list written to spreadsheet '{sheet_name}'")
 
 
     def IsActive(self):
