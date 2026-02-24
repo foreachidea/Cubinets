@@ -6,8 +6,8 @@ class cmdNewParams:
 
     def GetResources(self):
         return {
-            "MenuText": "New Parameter Sheet",
-            "ToolTip": "Create new parameter spreadsheet.",
+            "MenuText": "New Sheet",
+            "ToolTip": "Create a new parameter spreadsheet.",
             "Pixmap": ""
         }
 

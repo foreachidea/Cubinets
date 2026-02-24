@@ -12,7 +12,7 @@ class cmdAssemble:
     def GetResources(self):
         return {
             "MenuText": "Assemble",
-            "ToolTip": "Assemble cabinets using parameters from 'params' spreadsheet and pre-designed templates.",
+            "ToolTip": "Produce an assembly of cabinets using parameters from a selected spreadsheet.",
             "Pixmap": ""
         }
 
