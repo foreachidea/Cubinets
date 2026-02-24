@@ -1,27 +1,19 @@
 # [ ]]] Cubinets 
 
-Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate the design and production process. Visualise Cabinet Assemblies in minutes, using predesigned Parametric Templates; Generate Cut Lists instantly.
+Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate the design and production process. Visualise Cabinet Assemblies in minutes, using Parametric Templates and Generate Cut Lists instantly.
 
-### 🔥Concept Demo
+
+## 🔥Concept Demo
+
+![concept demo](https://drive.google.com/file/d/1ITMk4tejH-CLsOr5mcPiyW-gXaiF95ak/view?usp=sharing)
+
+
+## 🔥Parametric Template design Demo
 
 ** demo gif **
 
-### 🔥Parametric Template design Demo
 
-** demo gif **
-
-## ☰ Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Donate](#donate)
-- [License](#license)
-
-
-<a name="installation"/>
-
-## 🛠️ Installation
+# 🛠️ Installation
 
 - ✅ Install FreeCAD from the official website - https://www.freecad.org
 - ✅ Download Cubinets latest release - https://github.com/vyt4ut4s/Cubinets/releases/latest
@@ -32,21 +24,19 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
     - For snap versions (for instance on Ubuntu) it is $HOME/snap/freecad/common/Mod/
 
 
-<a name="usage"/>
-
-## 👨‍💻 Usage
+# 👨‍💻 Usage
 
 **video: how to use**
 **video: how to design a parametric template**
 
-### Directives
+## Directives
 | directive | description |
 |---|---|
 | `void` | creates a void in the assembly of a certain width; eg.: space for a cooker, fireplace, dreams and imagination, etc. |
 | empty row | indicates a new row of units; currently only 2 rows implemented. |
 
 
-### Provided Templates
+## Provided Templates
 
 | Name| Description |
 |---|---|
@@ -58,7 +48,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 > Users are welcome to Design and use own Parametric Templates.
 
 
-### Parameters
+## Parameters
 
 | Name | | | | | | | | | | | |
 |-|-|-|-|-|-|-|-|-|-|-|-|
@@ -67,8 +57,11 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 | `cubinet double` | unit width | unit height | unit depth | material thickness | door margin |
 | `cubinet drawer` | unit width | unit height | unit depth | material thickness | door margin | top panel depth (%) | drawer face height | drawer box height | drawer box bottom margin | drawer box material thickness | drawer box rail width |
 
+> [!NOTE]
+> Parameters provided in mm, unless stated otherwise.
 
-### Example Kitchen Assembly
+
+## Example Kitchen Assembly
 
 copy/paste these values to a "params" spreadsheet and click Assemble 
 
@@ -88,17 +81,15 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 ```
 
 
-### Template Design Conventions
+## Template Design Conventions
 
 **conventions**
 
 
-<a name="roadmap"/>
+# 🎯 Roadmap
 
-## 🎯 Roadmap
-
-### ✅ Current Version (v0.1.0-demo)
-- ✅ Visualise Cabinet Assemblies using predesigned Parametric Templates
+## ✅ Current Version (v0.1.0-demo)
+- ✅ Visualise Cabinet Assemblies using pre-designed Parametric Templates
 - ✅ Generate Part Cutlist
 
 
@@ -115,8 +106,6 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 - 💡 CNC automation
 
 
-<a name="donate"/>
-
 ## ❤️ Donate
 
 ### 🌱 Help this project grow
@@ -125,8 +114,6 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 
 **donate button**
 
-
-<a name="license"/>
 
 ## 📝 License
 
