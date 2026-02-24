@@ -1,3 +1,18 @@
+#   []]] Cubinets, Copyright (C) 2026, Vytautas Rimkevicius
+#   
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#   
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#   
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import FreeCAD as App
 from PySide2 import QtWidgets
 import os
@@ -21,6 +36,7 @@ class SettingsDialog(QtWidgets.QDialog):
         self.folder_edit.setText(self.params.GetString("TemplateFolder", os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'templates')))
 
         browse_btn = QtWidgets.QPushButton("Browse…")
+        # todo: check browse folder
         browse_btn.clicked.connect(self.browse_folder)
 
         folder_layout.addWidget(QtWidgets.QLabel("Template folder:"))
