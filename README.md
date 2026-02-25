@@ -5,7 +5,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 
 ## 🔥Concept Demo
 
-![concept demo](https://vyt4ut4s.github.io/media/Cubinets/concept_demo.gif)
+![concept demo](https://vyt4ut4s.github.io/media/Cubinets/concept_demo.gif?v=2)
 
 
 ## 🔥Parametric Template design Demo
@@ -58,7 +58,8 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 | `cubinet drawer` | unit width | unit height | unit depth | material thickness | door margin | top panel depth (%) | drawer face height | drawer box height | drawer box bottom margin | drawer box material thickness | drawer box rail width |
 
 > [!NOTE]
-> Parameters provided in mm, unless stated otherwise.
+> Parameters provided in millimeters, unless stated otherwise.
+> eg.: cubinet drawer - top panel depth (%)
 
 
 ## Example Kitchen Assembly
