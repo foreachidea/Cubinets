@@ -73,7 +73,10 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 
 ## Example Kitchen Assembly
 
-copy/paste these values to a "params" spreadsheet and click Assemble 
+This example contains handfull of cabinets and voids for the boiler, extractor and cooker.
+
+copy/paste these values to a "params" spreadsheet and click Assemble.
+
 
 ```
 void	400										
@@ -90,7 +93,7 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 ```
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/example_kitchen_assembly.jpg" alt="example kitchen assembly" style="max-width: 50%;">
+<img src="https://vyt4ut4s.github.io/media/Cubinets/example_kitchen_assembly.jpg" alt="example kitchen assembly" width="50%">
 
 
 ## Template Design Conventions
