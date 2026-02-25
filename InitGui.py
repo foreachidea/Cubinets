@@ -21,7 +21,7 @@ class CubinetsWorkbench(Gui.Workbench):
     Icon = ""
 
     def Initialize(self):
-        import cmdNewParams, cmdAssemble, cmdCutList, cmdSettings
+        import cmdNewParams, cmdAssemble, cmdCutList
 
         # hiding settings for demo; settings must be reviewed
         self.list = ["cmdNewParams", "cmdAssemble", "cmdCutList"]
