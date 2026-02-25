@@ -516,6 +516,7 @@ class cmdAssemble:
         view = Gui.ActiveDocument.ActiveView
         r = App.Base.Rotation(App.Base.Vector(0,1,0), 45) * App.Base.Rotation(App.Base.Vector(1,0,0), -35)
         view.viewIsometric()  # optional, to start from default iso
+        view.setCameraType("Perspective")
         view.setCameraOrientation(r)
         
         QtCore.QTimer.singleShot(150, view.fitAll)
