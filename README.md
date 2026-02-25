@@ -93,7 +93,9 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 ```
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/example_kitchen_assembly.jpg" alt="example kitchen assembly" width="50%">
+<img src="https://vyt4ut4s.github.io/media/Cubinets/example_kitchen_assembly.jpg" alt="example kitchen assembly" width="40%">
+
+I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 
 ## Template Design Conventions
