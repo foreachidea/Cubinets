@@ -92,14 +92,14 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 ## Template Design Protocol
 
-- Template must contain a "params" spreadsheet
-- Spreadsheet format
- - Column A - parameter name, eg.: unit width, material thickness, etc.
- - Column B - value (default), eg.: 140, 600, etc. 
- - Column C - value unit description, eg.: mm, %
- - Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
-- All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
-- XY plane (top view - table saw/CNC perspective) must be used to design parts.
+- 📌 Template must contain a "params" spreadsheet
+- 📌 Spreadsheet format
+  - 📌 Column A - parameter name, eg.: unit width, material thickness, etc.
+  - 📌 Column B - value (default), eg.: 140, 600, etc. 
+  - 📌 Column C - value unit description, eg.: mm, %
+  - 📌 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
+- 📌 All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
+- 📌 XY plane (top view - table saw/CNC perspective) must be used to design parts.
 
 *more info comming soon..*
 
