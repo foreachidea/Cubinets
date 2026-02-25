@@ -11,7 +11,7 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
 ## 🔥Parametric Template design Demo
 
-** demo gif **
+*demo coming soon*
 
 
 # 🛠️ Installation
@@ -90,7 +90,7 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 
-## Template Design Protocol
+## 📑 Template Design Protocol
 
 - 📌 Template must contain a "params" spreadsheet
 - 📌 Spreadsheet format
@@ -98,8 +98,8 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
   - 📌 Column B - value (default), eg.: 140, 600, etc. 
   - 📌 Column C - value unit description, eg.: mm, %
   - 📌 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
+- 📌 Switch to XY plane (top view - table saw/CNC perspective) must be used to design parts.
 - 📌 All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
-- 📌 XY plane (top view - table saw/CNC perspective) must be used to design parts.
 
 *more info comming soon..*
 
@@ -111,7 +111,7 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 - ✅ Generate Part Cutlist
 
 
-### 🔄 Upcoming (v1.0)
+## 🔄 Upcoming (v1.0)
 - 🔄 Complete code rewrite: spagetti to a readable, scaleable and extendible code
 - 🔄 UX/UI Improvments - Settings Dialog, Parameter Hints, ...
 - 🔄 New App Features
@@ -119,21 +119,21 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 - 🔄 New Templates
 
 
-### 💡 Ideas
+## 💡 Ideas
 - 💡 Quality Visual Renderings
 - 💡 CNC automation
 
 
-## ❤️ Donate
+# ❤️ Donate
 
-### 🌱 Help this project grow
+## 🌱 Help this project grow
  - ☕ If you like this sofware, buy me a coffee.
  - 🧩 If you find it usefull in your proffesional activities, consider donating a larger sum. 
 
 **donate button**
 
 
-## 📝 License
+# 📝 License
 
 This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE.txt).
 
