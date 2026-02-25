@@ -2,6 +2,8 @@
 
 Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate the design and production process. Visualise Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.
 
+![demo](https://img.shields.io/badge/version-v0.1.0-demo)
+
 
 ## 🔥Concept Demo
 
