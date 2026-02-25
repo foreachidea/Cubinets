@@ -1,20 +1,15 @@
 # [ ]]] Cubinets 
 
-Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate the design and production process. Visualise Cabinet Assemblies in minutes, using Parametric Templates and Generate Cut Lists instantly.
+Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate the design and production process. Visualise Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.
 
 
 ## 🔥Concept Demo
 
-![concept demo](https://vyt4ut4s.github.io/Cubinets/concept_demo.gif)
+`https://vyt4ut4s.github.io/Cubinets/concept_demo.gif`
 
-<video src="https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4"
-       autoplay
-       loop
-       muted
-       playsinline>
-</video>
+https://vyt4ut4s.github.io/Cubinets/concept_demo.gif
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/concept_demo.gif" alt="Alt text">
+* gif does not embed correctly, sorry
 
 
 ## 🔥Parametric Template design Demo
@@ -106,7 +101,7 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 # 🎯 Roadmap
 
 ## ✅ Current Version (v0.1.0-demo)
-- ✅ Visualise Cabinet Assemblies using pre-designed Parametric Templates
+- ✅ Visualise Cabinet Assemblies using Parametric Templates
 - ✅ Generate Part Cutlist
 
 
