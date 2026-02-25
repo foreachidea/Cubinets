@@ -33,7 +33,7 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 | directive | description |
 |---|---|
 | `void` | creates a void in the assembly of a certain width; eg.: space for a cooker, fireplace, dreams and imagination, etc. |
-| empty row | indicates a new row of units; currently only 2 rows implemented. |
+| empty row | indicates a new row of cabinet units; *currently, only 2 rows supported* |
 
 
 ## Provided Templates
@@ -45,7 +45,7 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 | `cubinet drawer` | one door cabinet with a drawer |
 
 > [!TIP]
-> Users are welcome to Design and use own Parametric Templates.
+> Users are welcome to Design and use their own Parametric Templates.
 
 
 ## Parameters
@@ -89,9 +89,18 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 
-## Template Design Conventions
+## Template Design Protocol
 
-**conventions**
+- Template must contain a "params" spreadsheet
+- Spreadsheet format
+ - Column A - parameter name, eg.: unit width, material thickness, etc.
+ - Column B - value (default), eg.: 140, 600, etc. 
+ - Column C - value unit description, eg.: mm, %
+ - Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
+- All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
+- XY plane (top view - table saw/CNC perspective) must be used to design parts.
+
+*more info comming soon..*
 
 
 # 🎯 Roadmap
@@ -103,9 +112,9 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 ### 🔄 Upcoming (v1.0)
 - 🔄 Complete code rewrite: spagetti to a readable, scaleable and extendible code
-- 🔄 User Experience and User Interface improvments;
-- 🔄 New App features
-- 🔄 New Template features
+- 🔄 UX/UI Improvments - Settings Dialog, Parameter Hints, ...
+- 🔄 New App Features
+- 🔄 New Template Features - count objects, eg.: shelves
 - 🔄 New Templates
 
 
