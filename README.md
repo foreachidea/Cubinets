@@ -129,7 +129,7 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 
 ## 📝 License
 
-This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE).
+This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE.txt).
 
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue)](https://www.python.org/)
 [![PySide2](https://img.shields.io/badge/PySide2-5.15%2B-green)](https://wiki.qt.io/PySide2)
