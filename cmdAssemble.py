@@ -425,9 +425,26 @@ class cmdAssemble:
                 else:
                     y = 0
 
+                '''
                 for i, (shape, placement, label) in enumerate(extracted):
                     baked = target_doc.addObject("Part::Feature")
                     baked.Shape = shape
+                    baked.Placement = App.Placement(
+                        placement.Base + App.Vector(x, y, z),
+                        placement.Rotation
+                    )
+                    baked.Label = f"{unit:02d}_{label}"
+                    group.addObject(baked)
+                '''
+                for i, (shape, placement, label) in enumerate(extracted):
+                    baked = target_doc.addObject("Part::Box")
+                    
+                    shape.Placement = App.Placement()
+
+                    bbox = shape.BoundBox
+                    baked.Length = bbox.XLength
+                    baked.Width  = bbox.YLength
+                    baked.Height = bbox.ZLength
                     baked.Placement = App.Placement(
                         placement.Base + App.Vector(x, y, z),
                         placement.Rotation
