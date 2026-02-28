@@ -5,9 +5,13 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 ![demo](https://img.shields.io/badge/version-v0.1.0--demo-green)
 
 
-## 🔥Concept Demo
+### 🔥Concept Demo
 
 https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
+
+### 🔥Real World Demo
+
+*demo coming soon*
 
 ## 🔥Parametric Template design Demo
 
@@ -27,8 +31,9 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
 # 👨‍💻 Usage
 
-**video: how to use**
-**video: how to design a parametric template**
+**video: how to use coming soon**
+
+**video: how to design a parametric template coming soon**
 
 ## Directives
 | directive | description |
@@ -131,7 +136,7 @@ In order for Cubinets to recognise and correctly interpret your designs, it is i
 
 ## 🌱 Help this project grow
  - ☕ If you like this sofware, buy me a coffee.
- - 🧩 If you find it usefull in your proffesional activities, consider donating a larger sum. 
+ - 🧩 If you find it usefull in your professional activities, consider donating a larger sum. 
 
 **donate button**
 
