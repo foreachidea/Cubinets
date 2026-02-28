@@ -90,7 +90,9 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 
-## 📑 Template Design Protocol
+## 📑 Template Design Protocol (design rules)
+
+In order for Cubinets to recognise and correctly interpret your designs, it is important to set a standart. This standart is also aimed to be the most  practical and intuitive for a human person.
 
 - 📌 Template must contain a "params" spreadsheet
 - 📌 Spreadsheet format
@@ -98,8 +100,9 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
   - 📌 Column B - value (default), eg.: 140, 600, etc. 
   - 📌 Column C - value unit description, eg.: mm, %
   - 📌 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
-- 📌 Switch to XY plane (top view - table saw/CNC perspective) must be used to design parts.
+- 📌 XY plane of a 3d view (top view - table saw/CNC perspective) must be used to design parts.
 - 📌 All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
+- 📌 Enter part dimensions, then position and rotate it in place.
 
 *more info comming soon..*
 
