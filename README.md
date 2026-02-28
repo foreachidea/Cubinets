@@ -105,6 +105,11 @@ In order for Cubinets to recognise and correctly interpret your designs, it is i
   - 📌 Column B - value (default), eg.: 140, 600, etc. 
   - 📌 Column C - value unit description, eg.: mm, %
   - 📌 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
+  | A | B | C |
+  |---|---|---|
+  | unit width | 400 | mm |
+  | unit height | 700 | mm |
+  | unit depth | 300 | mm |
 - 📌 XY plane of a 3d view (top view - table saw/CNC perspective) must be used to design parts.
 - 📌 All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
 - 📌 Enter part dimensions, then position and rotate it in place.
