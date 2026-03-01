@@ -77,11 +77,11 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 This example contains handfull of cabinets and voids for the boiler, extractor and cooker.
 
 To try this:
- 🧊 create a new FreeCAD document
- 🧊 select Cubinets workbench from the dropdown combo box
- 🧊 click on "New Sheet"; "parameters" spreadsheet will be created
- 🧊 copy/paste these values to a spreadsheet
- 🧊 click on "Assemble".
+ - 🧊 create a new FreeCAD document
+ - 🧊 select Cubinets workbench from the dropdown combo box
+ - 🧊 click on "New Sheet"; "parameters" spreadsheet will be created
+ - 🧊 copy/paste these values to a spreadsheet
+ - 🧊 click on "Assemble".
 
 
 ```
