@@ -9,7 +9,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 
 ## 💡 Tell me more...
 
-Designing Cabinet Assemblies (i.e. Kitchen) is a repetative business. You take meassurements of the room, plan the position of your appliances, select cabinet style and materials. Then produce a design and  and .................
+Designing Cabinet Assemblies (i.e. Kitchen) is a repetative business. You take meassurements of the room, plan the position of your appliances, select cabinet style and materials. Then produce a design and present it to client, revise, redisign, prepare cutlist and start the production...
 
 What if you could visualise the end result right after meassuring the room? On site. In minutes!
 
@@ -19,24 +19,18 @@ What if you could visualise the end result right after meassuring the room? On s
 https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
 
-## 🔥Real World Demo
-
-*demo coming soon*
-
-## 🔥Parametric Template design Demo
-
-*demo coming soon*
-
-
 # 🛠️ Installation
 
-- ✅ Install FreeCAD from the official website - ![FreeCAD](https://www.freecad.org)
+- ✅ Download FreeCAD from the official website - ![FreeCAD](https://www.freecad.org)
+- ✅ Install FreeCAD
 - ✅ Download Cubinets latest release - ![Latest Release](https://github.com/vyt4ut4s/Cubinets/releases/latest)
-- ✅ Extract archive contents to FreeCAD workbenches folder:
+- ✅ Extract archive contents to FreeCAD workbenches' folder:
   - 🍎 On **macOS** it is usually /Applications/FreeCAD/Mod/
   - 🪟 On **Windows** it is usually C:\Program Files\FreeCAD\Mod\
   - 🐧 On **Linux** it is usually /usr/share/freecad/Mod/
     - For snap versions (for instance on Ubuntu) it is $HOME/snap/freecad/common/Mod/
+
+💫 That's it!
 
 
 # 👨‍💻 Usage
@@ -107,21 +101,27 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 ## 📑 Template Design Protocol (design rules)
 
-In order for Cubinets to recognise and correctly interpret your designs, it is important to set a standart. This standart is also aimed to be the most  practical and intuitive for a human person.
+> [!NOTE] Template document is a regular FreeCAD design document. NO added complexity.
+> To create your own parametric template: open FreeCAD and create new document. That's it, you are set!
 
-📌 Template must contain a spreadsheet named "parameters". This is where the parameters will live.
+In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standart. This standart is set to be optimal practicaly and intuitive for a human person.
+
+📌 Template document must contain a **spreadsheet named "parameters"**. This is where parameters of the *Prametric Template* will live. FreeCAD has a Spreadsheet workbench, with tools available to create and manipulate spreadsheets. However, Cubinets only require a basic spreadsheet and it is recommended to use a shortcut access - a button "New Sheet" provided in Cubinets workbench. 
 
 📌 Spreadsheet format<br>
 Column A - **parameter name**, *eg.: unit width, material thickness, etc.*<br>
-Column B - **parameter value (default)**, *eg.: 140, 600, etc.*<br>
+Column B - **parameter value (default value)**, *eg.: 400, 700, 300, etc.*<br>
 Column C - **value unit**, *eg.: mm, %, etc.*<br>
 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
+
+🔥 Eg.:
 
 | | A | B | C |
 |---|---|---|---|
 | 1 | unit width | 400 | mm |
 | 2 | unit height | 700 | mm |
 | 3 | unit depth | 300 | mm |
+| 4 | flex | 100 | % |
 
 > [!IMPORTANT]
 > First row parameter must be unit width. It is used to position units during the assenbly process.
@@ -131,7 +131,7 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 
 📌 **XY plane** of a 3d view  must be used to design parts. This is a top view - a perspective of a table saw or a CNC.
 
-📌 All parts must be of a type **Cube**, available in **Part Workbench**.
+📌 All parts must be of a type - **Cube**, available in **Part Workbench**.
 
 📌 Enter part dimensions in order: width, height, depth, then position and rotate it into the final desired position.
 
