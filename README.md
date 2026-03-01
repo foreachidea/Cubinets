@@ -117,17 +117,17 @@ Column B - **parameter value (default)**, *eg.: 140, 600, etc.*<br>
 Column C - **value unit**, *eg.: mm, %, etc.*<br>
 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
 
-> [!IMPORTANT]
-> First row parameter must be unit width. It is used to position units during the assenbly process.
-
-> [!TIP]
-> It is recommended that templates also contain unit height and unit depth parameters.
-
 | | A | B | C |
 |---|---|---|---|
 | 1 | unit width | 400 | mm |
 | 2 | unit height | 700 | mm |
 | 3 | unit depth | 300 | mm |
+
+> [!IMPORTANT]
+> First row parameter must be unit width. It is used to position units during the assenbly process.
+
+> [!TIP]
+> It is recommended that templates also contain unit height and unit depth parameters.
 
 📌 **XY plane** of a 3d view  must be used to design parts. This is a top view - a perspective of a table saw or a CNC.
 
