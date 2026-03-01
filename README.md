@@ -9,14 +9,19 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 
 ## 💡 Tell me more...
 
-Designing Cabinet Assemblies (i.e. Kitchen) is a repetative business. You take meassurements of the room, plan the position of your appliances, select cabinet style and materials. Then produce a design and present it to client, revise, redisign, prepare cutlist and start the production...
+Designing Cabinet Assemblies may be a repetative business. Let's say you are working on a kitchen. You arrive on site, take meassurements of the room, plan the position and space of appliances, select cabinet style and materials. Then produce a design and present it to client, revise, redesign, prepare cutlist and start the production...
 
-What if you could visualise the end result right after meassuring the room? On site. In minutes!
+What if you could visualise the end result first thing you arrive on site? In minutes!
 
 
 ## 🔥Concept Demo
 
 https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
+
+
+## 💡 What's the idea...
+
+While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accuratelly. The idea is to outsource repetitive tasks to computers, they love it!
 
 
 # 🛠️ Installation
