@@ -68,7 +68,7 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 | `cubinet drawer` | unit width | unit height | unit depth | material thickness | door margin | top panel depth (%) | drawer face height | drawer box height | drawer box bottom margin | drawer box material thickness | drawer box rail width |
 
 > [!NOTE]
-> Parameters provided in millimeters, unless stated otherwise.
+> Parameters provided in millimeters, unless stated otherwise in parenthesis.
 > eg.: cubinet drawer - top panel depth (%)
 
 
