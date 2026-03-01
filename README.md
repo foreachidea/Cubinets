@@ -109,34 +109,31 @@ I know what yer thinking: finally some units with realistic parameters. Enjoy!
 
 In order for Cubinets to recognise and correctly interpret your designs, it is important to set a standart. This standart is also aimed to be the most  practical and intuitive for a human person.
 
-- 📌 Template must contain a spreadsheet named "parameters". This is where the parameters will live.
-- 📌 Spreadsheet format
-  - 📌 Column A - **parameter name**, *eg.: unit width, material thickness, etc.*
-  - 📌 Column B - **parameter value (default)**, *eg.: 140, 600, etc.*
-  - 📌 Column C - **value unit**, *eg.: mm, %*
-  - 📌 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
+📌 Template must contain a spreadsheet named "parameters". This is where the parameters will live.
 
-      > [!IMPORTANT]
-      > First row parameter must be unit width. It is used to position units during the assenbly process.
-
-      > [!TIP]
-      > It is recommended that templates also contain unit height and unit depth parameters.
-
-      | | A | B | C |
-      |---|---|---|---|
-      | 1 | unit width | 400 | mm |
-      | 2 | unit height | 700 | mm |
-      | 3 | unit depth | 300 | mm |
-
-- 📌 XY plane of a 3d view (top view - table saw/CNC perspective) must be used to design parts.
-- 📌 All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
-- 📌 Enter part dimensions, then position and rotate it in place.
+📌 Spreadsheet format
+Column A - **parameter name**, *eg.: unit width, material thickness, etc.*
+Column B - **parameter value (default)**, *eg.: 140, 600, etc.*
+Column C - **value unit**, *eg.: mm, %*
+Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
 
 > [!IMPORTANT]
 > First row parameter must be unit width. It is used to position units during the assenbly process.
 
 > [!TIP]
 > It is recommended that templates also contain unit height and unit depth parameters.
+
+| | A | B | C |
+|---|---|---|---|
+| 1 | unit width | 400 | mm |
+| 2 | unit height | 700 | mm |
+| 3 | unit depth | 300 | mm |
+
+📌 **XY plane** of a 3d view  must be used to design parts. This is a top view - a perspective of a table saw or a CNC.
+
+📌 All parts must be of a type **Cube**, available in **Part Workbench**.
+
+📌 Enter part dimensions in order: width, height, depth, then position and rotate it into the final desired position.
 
 *more info comming soon..*
 
