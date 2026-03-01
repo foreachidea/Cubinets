@@ -58,7 +58,7 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 > Users are welcome to Design and use their own Parametric Templates.
 
 
-## Parameters
+## Parameters of the provided Directives and Templates
 
 | Name | | | | | | | | | | | |
 |-|-|-|-|-|-|-|-|-|-|-|-|
