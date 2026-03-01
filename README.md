@@ -111,10 +111,10 @@ In order for Cubinets to recognise and correctly interpret your designs, it is i
 
 📌 Template must contain a spreadsheet named "parameters". This is where the parameters will live.
 
-📌 Spreadsheet format
-Column A - **parameter name**, *eg.: unit width, material thickness, etc.*
-Column B - **parameter value (default)**, *eg.: 140, 600, etc.*
-Column C - **value unit**, *eg.: mm, %*
+📌 Spreadsheet format<br>
+Column A - **parameter name**, *eg.: unit width, material thickness, etc.*<br>
+Column B - **parameter value (default)**, *eg.: 140, 600, etc.*<br>
+Column C - **value unit**, *eg.: mm, %, etc.*<br>
 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
 
 > [!IMPORTANT]
