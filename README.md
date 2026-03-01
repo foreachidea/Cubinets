@@ -122,7 +122,7 @@ In order for Cubinets to recognise and correctly interpret your designs, it is i
       > [!TIP]
       > It is recommended that templates also contain unit height and unit depth parameters.
 
-      | A | B | C |
+      | | A | B | C |
       |---|---|---|---|
       | 1 | unit width | 400 | mm |
       | 2 | unit height | 700 | mm |
