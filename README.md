@@ -76,7 +76,12 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
 This example contains handfull of cabinets and voids for the boiler, extractor and cooker.
 
-copy/paste these values to a "params" spreadsheet and click Assemble.
+To try this:
+ - 🧊 create a new FreeCAD document
+ - 🧊 select Cubinets workbench from the dropdown combo box
+ - 🧊 click on "New Sheet"; "parameters" spreadsheet will be created
+ - 🧊 copy/paste these values to a spreadsheet
+ - 🧊 click on "Assemble".
 
 
 ```
@@ -94,9 +99,9 @@ cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
 ```
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/example_kitchen_assembly.jpg" alt="example kitchen assembly" width="40%">
+💫 Here's the resut:
 
-I know what yer thinking: finally some units with realistic parameters. Enjoy!
+<img src="https://vyt4ut4s.github.io/media/Cubinets/example_kitchen_assembly.jpg" alt="example kitchen assembly" width="40%">
 
 
 ## 📑 Template Design Protocol (design rules)
