@@ -1,15 +1,25 @@
-# [ ]]] Cubinets 
+# [ ]]] Cubinets
 
-Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate the design and production process. Visualise Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.
+## 🥥 In a nutshell
+
+Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design and production process. Using Parametric Templates visualise Cabinet Assemblies in minutes and Generate Cut Lists instantly.
 
 ![demo](https://img.shields.io/badge/version-v0.1.0--demo-green)
 
 
-### 🔥Concept Demo
+## 💡 Tell me more...
+
+Designing Cabinet Assemblies (i.e. Kitchen) is a repetative business. You take meassurements of the room, plan the position of your appliances, select cabinet style and materials. Then produce a design and  and .................
+
+What if you could visualise the end result right after meassuring the room? On site. In minutes!
+
+
+## 🔥Concept Demo
 
 https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
-### 🔥Real World Demo
+
+## 🔥Real World Demo
 
 *demo coming soon*
 
@@ -31,9 +41,9 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
 # 👨‍💻 Usage
 
-**video: how to use coming soon**
+*video: how to use Cubinets ... coming soon*
 
-**video: how to design a parametric template coming soon**
+*video: how to design a parametric templates in FreeCAD ... coming soon*
 
 ## Directives
 | directive | description |
@@ -105,11 +115,19 @@ In order for Cubinets to recognise and correctly interpret your designs, it is i
   - 📌 Column B - value (default), eg.: 140, 600, etc. 
   - 📌 Column C - value unit description, eg.: mm, %
   - 📌 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
-  | A | B | C |
-  |---|---|---|
-  | unit width | 400 | mm |
-  | unit height | 700 | mm |
-  | unit depth | 300 | mm |
+
+      > [!IMPORTANT]
+      > First row parameter must be unit width. It is used to position units during the assenbly process.
+
+      > [!TIP]
+      > It is recommended that templates also contain unit height and unit depth parameters.
+
+      | A | B | C |
+      |---|---|---|---|
+      | 1 | unit width | 400 | mm |
+      | 2 | unit height | 700 | mm |
+      | 3 | unit depth | 300 | mm |
+
 - 📌 XY plane of a 3d view (top view - table saw/CNC perspective) must be used to design parts.
 - 📌 All parts must be a Cube from Part Workbench; In technical terms - Part_Box.
 - 📌 Enter part dimensions, then position and rotate it in place.
