@@ -214,7 +214,7 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 
 This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE.txt).
 
-[![FreeCAD](https://img.shields.io/badge/FreeCAD-1.0.1%2B-blue)](https://www.freecad.org/)
+[![FreeCAD](https://img.shields.io/badge/FreeCAD-1.0.1%2B-red)](https://www.freecad.org/)
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue)](https://www.python.org/)
 [![PySide2](https://img.shields.io/badge/PySide2-5.15%2B-green)](https://wiki.qt.io/PySide2)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
