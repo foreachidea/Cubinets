@@ -60,7 +60,7 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 ## Directives and Provided Templates
 
 > [!NOTE]
-> Parameters provided in millimeters. 
+> Parameters provided in millimeters.
 
 ## Directives
 
@@ -89,7 +89,7 @@ empty row indicates that user finished defining the top row and is moving on to 
 |-|-|-|-|-|
 | `cubinet` | unit width | unit height | unit depth | material thickness |
 
-`cubinet` is a one door European style cabinet. It has a door margin of 2 mm on each edge.
+`cubinet` is a one door European style cabinet. The design has a door margin constant of 2 mm on each edge.
 
 
 ### 🧊 `cubinet double`
@@ -98,7 +98,7 @@ empty row indicates that user finished defining the top row and is moving on to 
 |-|-|-|-|-|
 | `cubinet double` | unit width | unit height | unit depth | material thickness |
 
-`cubinet double` is a two door European style cabinet. It has a door margin of 2 mm on each edge.
+`cubinet double` is a two door European style cabinet. The design has a door margin of 2 mm on each edge.
 
 
 ###  🧊 `cubinet drawer`
@@ -107,24 +107,19 @@ empty row indicates that user finished defining the top row and is moving on to 
 |-|-|-|-|-|
 | `cubinet drawer` | unit width | unit height | unit depth | material thickness | drawer face height | drawer box height | drawer box material thickness | drawer box rail width |
 
-`cubinet drawer` is a European style cabinet with a drawer and a compartment bellow with a single door.  It has a door and drawer face margin of 2 mm on each edge. The drawer box is a full length side design. Great for pocket screws. The back of the box is cut short for sliding in the bottom after assembling the box.
+`cubinet drawer` is a European style cabinet with a drawer and a compartment bellow with a single door. Edge margins for the drawer face and a door are set to 2 mm on each edge. The drawer box is a full length side design, ideal to fastening with pocket screws. The back of the box is cut short for sliding in the bottom panel, into routed grooves, after the drawer box assembly. Grove depth is set to half of the drawer box material thickness. Drawer back to unit back margin set to 20 mm constant.
 
 
 > [!TIP]
 > Users are encouraged to adopt and modify exsisting or design and use their own Parametric Templates.
 
+> [!IMPORTANT]
+> Notice how some parameters are exposed as user input (eg.: unit width, material thickness) while others are built into Parametric Templates as constants (eg.: door margin: 2mm, groove depth: half of the material thickness). When designing own Parametric Templates, makers are free to decide what variables they want to expose for user entry and what they preffer to setting as constants. It is all about the balance between elegance and clutter, or rather, between being concise and verbose. These are the choices deliberated during the design process of a Parametric Template and may be unique to a maker reflecting their signature style.
+
 
 ## Example Kitchen Assembly
 
 This example contains handfull of cabinets and voids for the boiler, extractor and cooker.
-
-To try this:
- - 🧊 create a new FreeCAD document
- - 🧊 select Cubinets workbench from the dropdown combo box
- - 🧊 click on "New Sheet"; "parameters" spreadsheet will be created
- - 🧊 copy/paste these values to a spreadsheet
- - 🧊 click on "Assemble".
-
 
 ```
 void	400										
