@@ -47,44 +47,71 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 *video: how to design a parametric templates in FreeCAD ... coming soon*
 
 
-- Open FreeCAD app
-- Create a new Document (File -> New or Ctrl + N, etc.)
-- Switch to Cubinets Workbench (View -> Workbench -> Cubinets)
+- 🧊 Open FreeCAD app
+- 🧊 Create a new Document (File -> New or Ctrl + N, etc.)
+- 🧊 Switch to Cubinets Workbench (View -> Workbench -> Cubinets, etc.)
 
-- 
+- 🧊 Create a Spreadsheet - (Cubinets -> New Sheet)
+- 🧊 Enter data: Directives and Templates; use parameters or omit for defaults 
+- 🧊 Produce Unit Assembly (Cubinets -> Assemble)
+- 🧊 Produce a Cut List (Cubinets -> Cutlist)
 
+
+## Directives and Provided Templates
+
+> [!NOTE]
+> Parameters provided in millimeters. 
 
 ## Directives
-| directive | description |
-|---|---|
-| `void` | creates a void in the assembly of a certain width; eg.: space for a cooker, fireplace, dreams and imagination, etc. |
-| empty row | indicates a new row of cabinet units; *currently, only 2 rows of cabinets supported* |
+
+### 🧊 `void`
+| | |
+|-|-|
+| `void` | width |
+
+`void` *directive* creates an empty space in the assembly of a certain width; eg.: space for a cooker, fireplace, imagination, etc.
+
+
+### 🧊 empty row
+
+| | |
+|-|-|
+|  |  |
+
+empty row indicates that user finished defining the top row and is moving on to enter data for the bottom row of cabinets; *in this demo two rows of cabinets supported*
 
 
 ## Provided Templates
 
-| Name| Description |
-|---|---|
-| `cubinet` | one door cabinet |
-| `cubinet double` | two door cabinet |
-| `cubinet drawer` | one door cabinet with a drawer |
+### 🧊 `cubinet`
+
+| | | | | |
+|-|-|-|-|-|
+| `cubinet` | unit width | unit height | unit depth | material thickness |
+
+`cubinet` is a one door European style cabinet. It has a door margin of 2 mm on each edge.
+
+
+### 🧊 `cubinet double`
+
+| | | | | |
+|-|-|-|-|-|
+| `cubinet double` | unit width | unit height | unit depth | material thickness |
+
+`cubinet double` is a two door European style cabinet. It has a door margin of 2 mm on each edge.
+
+
+###  🧊 `cubinet drawer`
+
+| | | | | |
+|-|-|-|-|-|
+| `cubinet drawer` | unit width | unit height | unit depth | material thickness | drawer face height | drawer box height | drawer box material thickness | drawer box rail width |
+
+`cubinet drawer` is a European style cabinet with a drawer and a compartment bellow with a single door.  It has a door and drawer face margin of 2 mm on each edge. The drawer box is a full length side design. Great for pocket screws. The back of the box is cut short for sliding in the bottom after assembling the box.
+
 
 > [!TIP]
-> Users are welcome to Design and use their own Parametric Templates.
-
-
-## Parameters of the provided Directives and Templates
-
-| Name | | | | | | | | | | | |
-|-|-|-|-|-|-|-|-|-|-|-|-|
-| `void` | width |
-| `cubinet` | unit width | unit height | unit depth | material thickness | door margin |
-| `cubinet double` | unit width | unit height | unit depth | material thickness | door margin |
-| `cubinet drawer` | unit width | unit height | unit depth | material thickness | door margin | top panel depth (%) | drawer face height | drawer box height | drawer box bottom margin | drawer box material thickness | drawer box rail width |
-
-> [!NOTE]
-> Parameters provided in millimeters, unless stated otherwise in parenthesis.
-> eg.: cubinet drawer - top panel depth (%)
+> Users are encouraged to adopt and modify exsisting or design and use their own Parametric Templates.
 
 
 ## Example Kitchen Assembly
