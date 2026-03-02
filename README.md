@@ -72,7 +72,7 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 
 🧊 empty row
 
-empty row indicates that user finished defining the top row units and is moving on to enter data for the bottom row units; *in this demo two rows of cabinets supported*
+empty row indicates that user has finished defining the top row of units and is moving on to enter data for the bottom row of units; *in this demo two rows of cabinets supported*
 
 | | |
 |-|-|
