@@ -25,8 +25,8 @@ class CubinetsWorkbench(Gui.Workbench):
 
         # hiding settings for demo; settings must be reviewed
         self.list = ["cmdNewParams", "cmdAssemble", "cmdCutList"]
-        self.appendToolbar("My Commands", self.list) # creates a new toolbar with your commands
-        self.appendMenu("My New Menu", self.list) # creates a new menu
+        self.appendToolbar("Cubinets", self.list) # creates a new toolbar with your commands
+        self.appendMenu("Cubinets", self.list) # creates a new menu
 
     def Activated(self):
         pass
