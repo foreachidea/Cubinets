@@ -23,7 +23,7 @@ class cmdCutList:
     def GetResources(self):
         return {
             "MenuText": "Cut List",
-            "ToolTip": "Produce a list of parts, grouping by dimensions.",
+            "ToolTip": "Produce a list of parts, group by dimensions.",
             "Pixmap": ""
         }
 
