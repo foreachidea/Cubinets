@@ -28,9 +28,9 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 
 # 🛠️ Installation
 
-- ✅ Download FreeCAD - <a href="https://www.freecad.org" target="_blank">www.freecad.org</a>
+- ✅ Download FreeCAD - <a href="https://www.freecad.org" target="_blank" rel="noopener noreferrer">www.freecad.org</a>
 - ✅ Install FreeCAD
-- ✅ Download Cubinets - <a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank">latest release</a>
+- ✅ Download Cubinets - <a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank" rel="noopener noreferrer">latest release</a>
 - ✅ Extract archive contents to FreeCAD workbenches' folder:
   - 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/**
   - 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\**
