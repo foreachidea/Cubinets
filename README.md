@@ -120,15 +120,15 @@ empty row indicates that user has finished defining the top row of units and is 
 This example contains handfull of cabinets and voids for a boiler, an extractor and a cooker. Copy/paste this example to your sheet and click "Assemble".
 
 ```
-void  600             
-cubinet 400 700 300 18        
-void  600             
-cubinet double  800 500 300 18        
-cubinet 400 700 300 18        
-                
+void  600
+cubinet 400 700 300 18
+void  600
+cubinet double  800 500 300 18
+cubinet 400 700 300 18
+
 cubinet drawer  600 700 600 18  140 100 10  20
 cubinet drawer  400 700 600 18  140 100 10  20
-void  600             
+void  600
 cubinet drawer  400 700 600 18  140 100 10  20
 cubinet drawer  400 700 600 18  140 100 10  20
 cubinet drawer  400 700 600 18  140 100 10  20
@@ -185,7 +185,7 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 
 ## ✅ Current Version (v0.1.0-demo)
 - ✅ Visualise Cabinet Assemblies using Parametric Templates
-- ✅ Generate Part Cutlist
+- ✅ Generate Part Cut List
 
 
 ## 🔄 Upcoming (v1.0)
