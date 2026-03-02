@@ -16,7 +16,7 @@ What if you could visualise the end result first thing you arrive on site? In mi
 
 ## 🔥Concept Demo
 
-https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
+https://foreachidea.github.io/media/Cubinets/concept_demo.mp4
 
 
 ## 💡 What's the idea...
@@ -30,7 +30,7 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 
 - ✅ Download FreeCAD - ![www.freecad.org](https://www.freecad.org)<a href="https://www.freecad.org" target="_blank">www.freecad.org</a>
 - ✅ Install FreeCAD
-- ✅ Download Cubinets - ![Latest Release](https://github.com/vyt4ut4s/Cubinets/releases/latest)<a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank">latest release</a>
+- ✅ Download Cubinets - ![Latest Release](https://github.com/foreachidea/Cubinets/releases/latest)<a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank">latest release</a>
 - ✅ Extract archive contents to FreeCAD workbenches' folder:
   - 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/**
   - 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\**
@@ -136,7 +136,7 @@ cubinet drawer  400 700 600 18  140 100 10  20
 
 💫 Here's the resut:
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/kitchen_assembly_example.jpg" alt="kitchen assembly example" width="100%">
+<img src="https://foreachidea.github.io/media/Cubinets/kitchen_assembly_example.jpg" alt="kitchen assembly example" width="100%">
 
 
 ## 📑 Template Design Protocol (design rules)
@@ -160,7 +160,7 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 
 🔥 Eg.: here's the actual "cubinet double" params spreadsheet:
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/template_params_example1.jpg" alt="template params example" width="100%">
+<img src="https://foreachidea.github.io/media/Cubinets/template_params_example1.jpg" alt="template params example" width="100%">
 
 > [!IMPORTANT]
 > Params cell B2 value **must** be a unit width! This value is used to position cabinet units during the assenbly process.
