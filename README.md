@@ -2,14 +2,14 @@
 
 ## 🥥 In a nutshell
 
-Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design and production process. Using Parametric Templates visualise Cabinet Assemblies in minutes and Generate Cut Lists instantly.
+Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design process. Using Parametric Templates, visualise Cabinet Assemblies in minutes and Generate Cut Lists instantly.
 
 ![demo](https://img.shields.io/badge/version-v0.1.0--demo-green)
 
 
 ## 💡 Tell me more...
 
-Designing Cabinet Assemblies may be a repetative business. Let's say you are working on a kitchen. You arrive on site, take meassurements of the room, plan the position and space of appliances, select cabinet style and materials. Then produce a design and present it to client, revise, redesign, prepare cutlist and start the production...
+Designing Cabinet Assemblies may be a repetative business. Let's say you are working on a kitchen. You arrive on site, take meassurements of the room, plan the position and space of appliances, select cabinet style and materials. Then produce a design, present it to client, revise, redesign, prepare cutlist and start the production...
 
 What if you could visualise the end result first thing you arrive on site? In minutes!
 
@@ -23,17 +23,19 @@ https://vyt4ut4s.github.io/media/Cubinets/concept_demo.mp4
 
 While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accuratelly. The idea is to outsource repetitive tasks to computers, they love it!
 
+Cabinet style is a constant - European style, shaker style, etc. Then there are variables: unit dimensions, material thikness. It makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different values.
+
 
 # 🛠️ Installation
 
-- ✅ Download FreeCAD from the official website - ![FreeCAD](https://www.freecad.org)
+- ✅ Download FreeCAD - ![www.freecad.org](https://www.freecad.org)<a href="https://www.freecad.org" target="_blank">www.freecad.org</a>
 - ✅ Install FreeCAD
-- ✅ Download Cubinets latest release - ![Latest Release](https://github.com/vyt4ut4s/Cubinets/releases/latest)
+- ✅ Download Cubinets - ![Latest Release](https://github.com/vyt4ut4s/Cubinets/releases/latest)<a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank">latest release</a>
 - ✅ Extract archive contents to FreeCAD workbenches' folder:
-  - 🍎 On **macOS** it is usually /Applications/FreeCAD/Mod/
-  - 🪟 On **Windows** it is usually C:\Program Files\FreeCAD\Mod\
-  - 🐧 On **Linux** it is usually /usr/share/freecad/Mod/
-    - For snap versions (for instance on Ubuntu) it is $HOME/snap/freecad/common/Mod/
+  - 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/**
+  - 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\**
+  - 🐧 On **Linux** it is usually **/usr/share/freecad/Mod/**
+    - For snap versions (for instance on Ubuntu) it is **$HOME/snap/freecad/common/Mod/**
 
 💫 That's it!
 
@@ -44,11 +46,19 @@ While humans excel at creativity and handling ambiguity. Computers are strong in
 
 *video: how to design a parametric templates in FreeCAD ... coming soon*
 
+
+- Open FreeCAD app
+- Create a new Document (File -> New or Ctrl + N, etc.)
+- Switch to Cubinets Workbench (View -> Workbench -> Cubinets)
+
+- 
+
+
 ## Directives
 | directive | description |
 |---|---|
 | `void` | creates a void in the assembly of a certain width; eg.: space for a cooker, fireplace, dreams and imagination, etc. |
-| empty row | indicates a new row of cabinet units; *currently, only 2 rows supported* |
+| empty row | indicates a new row of cabinet units; *currently, only 2 rows of cabinets supported* |
 
 
 ## Provided Templates
