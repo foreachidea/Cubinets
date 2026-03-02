@@ -161,10 +161,10 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 
 🔥 Eg. here's a "cubinet double" params spreadsheet
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/template_params_example.jpg" alt="template params example" width="100%">
+<img src="https://vyt4ut4s.github.io/media/Cubinets/template_params_example1.jpg" alt="template params example" width="100%">
 
 > [!IMPORTANT]
-> First row parameter must be unit width. It is used to position units during the assenbly process.
+> Spreadsheed Cell A2 must contain unit width value! This value is used to position units during the assenbly process.
 
 > [!TIP]
 > It is recommended that templates also contain unit height and unit depth parameters.
