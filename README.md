@@ -119,21 +119,21 @@ empty row indicates that user finished defining the top row and is moving on to 
 
 ## Example Kitchen Assembly
 
-This example contains handfull of cabinets and voids for the boiler, extractor and cooker.
+This example contains handfull of cabinets and voids for a boiler, an extractor and a cooker.
 
 ```
-void	400										
-cubinet	400	700	300	18	2						
-void	600										
-cubinet double	800	700	300	18	2						
-cubinet	400	700	300	18	2						
-											
-cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
-cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
-void	600										
-cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
-cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
-cubinet drawer	400	700	300	18	2	20	140	100	10	10	20
+void  400             
+cubinet 400 700 300 18        
+void  600             
+cubinet double  800 700 300 18        
+cubinet 400 700 300 18        
+                
+cubinet drawer  400 700 300 18  140 100 10  20
+cubinet drawer  400 700 300 18  140 100 10  20
+void  600             
+cubinet drawer  400 700 300 18  140 100 10  20
+cubinet drawer  400 700 300 18  140 100 10  20
+cubinet drawer  400 700 300 18  140 100 10  20
 ```
 
 💫 Here's the resut:
