@@ -139,7 +139,7 @@ cubinet drawer  400 700 600 18  140 100 10  20
 
 💫 Here's the resut:
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/Cubinets/kitchen_assembly_example.jpg" alt="example kitchen assembly" width="40%">
+<img src="https://vyt4ut4s.github.io/media/Cubinets/kitchen_assembly_example.jpg" alt="example kitchen assembly" width="40%">
 
 
 ## 📑 Template Design Protocol (design rules)
