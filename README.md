@@ -144,8 +144,7 @@ cubinet drawer  400 700 600 18  140 100 10  20
 
 ## 📑 Template Design Protocol (design rules)
 
-> [!NOTE] Template document is a regular FreeCAD design document. NO added complexity.
-> To create your own parametric template: open FreeCAD and create new document. That's it, you are set!
+> [!NOTE] Template document is a regular FreeCAD design document. NO added complexity. To create your own parametric template: open FreeCAD and create new document. That's it, you are set!
 
 In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standart. This standart is set to be optimal practicaly and intuitive for a human person.
 
