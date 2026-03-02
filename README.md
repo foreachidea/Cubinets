@@ -44,9 +44,6 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 
 *video: how to use Cubinets ... coming soon*
 
-*video: how to design a parametric templates in FreeCAD ... coming soon*
-
-
 - 🧊 Open FreeCAD app
 - 🧊 Create a new Document (File -> New or Ctrl + N, etc.)
 - 🧊 Switch to Cubinets Workbench (View -> Workbench -> Cubinets, etc.)
@@ -144,6 +141,8 @@ cubinet drawer  400 700 600 18  140 100 10  20
 
 ## 📑 Template Design Protocol (design rules)
 
+*video: how to design a Parametric Templates in FreeCAD ... coming soon*
+
 > [!NOTE]
 > Parametric Template document is a regular FreeCAD design document. NO added complexity. To create your own Parametric Template: open FreeCAD and create new document. That's it, you are set!
 
@@ -159,23 +158,21 @@ Column B - **parameter value (default value)**, *eg.: 400, 700, 300, etc.*<br>
 Column C - **value unit**, *eg.: mm, %, etc.*<br>
 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
 
-🔥 Eg. here's a "cubinet double" params spreadsheet
+🔥 Eg.: here's the actual "cubinet double" params spreadsheet:
 
 <img src="https://vyt4ut4s.github.io/media/Cubinets/template_params_example1.jpg" alt="template params example" width="100%">
 
 > [!IMPORTANT]
-> Spreadsheed Cell A2 must contain unit width value! This value is used to position units during the assenbly process.
+> Params cell B2 value **must** be a unit width! This value is used to position cabinet units during the assenbly process.
 
 > [!TIP]
-> It is recommended that templates also contain unit height and unit depth parameters.
+> It is recommended that templates also contain unit height and unit depth parameters. Example above satisfies this recommendation.
 
-📌 **XY plane** of a 3d view  must be used to design parts. This is a top view - a perspective of a table saw or a CNC.
+📌 In 3d view, switching to a **XY plane** is a **must**. This is a **top view** - a perspective of a table saw or a CNC router.
 
-📌 All parts must be of a type - **Cube**, available in **Part Workbench**.
+📌 All parts, or rather cabinet panels, **must** be of an object type - **Cube**, available in **Part Workbench**.
 
-📌 Enter part dimensions in order: width, height, depth, then position and rotate it into the final desired position.
-
-*more info comming soon..*
+📌 Panel dimensions **must** be entered in the following order: width, height, depth. Create a panel of a desired dimensions in front of you, then position and rotate it into the final desired position.
 
 
 # 🎯 Roadmap
