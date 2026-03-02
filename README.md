@@ -139,17 +139,19 @@ cubinet drawer  400 700 600 18  140 100 10  20
 
 💫 Here's the resut:
 
-<img src="https://vyt4ut4s.github.io/media/Cubinets/kitchen_assembly_example.jpg" alt="example kitchen assembly" width="100%">
+<img src="https://vyt4ut4s.github.io/media/Cubinets/kitchen_assembly_example.jpg" alt="kitchen assembly example" width="100%">
 
 
 ## 📑 Template Design Protocol (design rules)
 
 > [!NOTE]
-> Template document is a regular FreeCAD design document. NO added complexity. To create your own parametric template: open FreeCAD and create new document. That's it, you are set!
+> Parametric Template document is a regular FreeCAD design document. NO added complexity. To create your own Parametric Template: open FreeCAD and create new document. That's it, you are set!
 
-In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standart. This standart is set to be optimal practicaly and intuitive for a human person.
+In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standart. This standart is aimed to be optimal practicaly and intuitive for a human person.
 
-📌 Template document must contain a **spreadsheet named "parameters"**. This is where parameters of the *Prametric Template* will live. FreeCAD has a Spreadsheet workbench, with tools available to create and manipulate spreadsheets. However, Cubinets only require a basic spreadsheet and it is recommended to use a shortcut access - a button "New Sheet" provided in Cubinets workbench. 
+📌 **Parametric Template document must contain a spreadsheet named "params"**. This is short for parameters. The reason it is shortened is that this name will be used in formulas and it is a good idea too keep the formulas as short as possible. Params Spreadsheet is where parameters of the Prametric Template will live. FreeCAD has a Spreadsheet workbench, with tools available to create and manipulate spreadsheets. However, Cubinets only require a basic spreadsheet manipulation and it is recommended to use a shortcuts provided by Cubinets Workbench:
+ - Toolbar button: "New Sheet"; or
+ - Menu: Cubinets -> New Sheet.
 
 📌 Spreadsheet format<br>
 Column A - **parameter name**, *eg.: unit width, material thickness, etc.*<br>
@@ -157,14 +159,9 @@ Column B - **parameter value (default value)**, *eg.: 400, 700, 300, etc.*<br>
 Column C - **value unit**, *eg.: mm, %, etc.*<br>
 Use of other Columns is unconstrained - user is free to use it (or not) for notes, calculations, etc.
 
-🔥 Eg.:
+🔥 Eg. here's a "cubinet double" params spreadsheet
 
-| | A | B | C |
-|---|---|---|---|
-| 1 | unit width | 400 | mm |
-| 2 | unit height | 700 | mm |
-| 3 | unit depth | 300 | mm |
-| 4 | flex | 100 | % |
+<img src="https://vyt4ut4s.github.io/media/Cubinets/template_params_example.jpg" alt="template params example" width="100%">
 
 > [!IMPORTANT]
 > First row parameter must be unit width. It is used to position units during the assenbly process.
