@@ -62,9 +62,9 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 > [!NOTE]
 > Parameters provided in millimeters.
 
-## Directives
+### Directives
 
-### 🧊 `void`
+🧊 `void`
 
 `void` *directive* creates an empty space in the assembly of a certain width; eg.: space for a cooker, fireplace, imagination, etc.
 
@@ -73,7 +73,7 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 | `void` | width |
 
 
-### 🧊 empty row
+🧊 empty row
 
 empty row indicates that user finished defining the top row units and is moving on to enter data for the bottom row units; *in this demo two rows of cabinets supported*
 
@@ -82,9 +82,9 @@ empty row indicates that user finished defining the top row units and is moving 
 |  |  |
 
 
-## Provided Templates
+### Provided Templates
 
-### 🧊 `cubinet`
+🧊 `cubinet`
 
 `cubinet` is a one door European style cabinet. The design has a door margin constant of 2 mm on each edge.
 
@@ -93,7 +93,7 @@ empty row indicates that user finished defining the top row units and is moving 
 | `cubinet` | unit width | unit height | unit depth | material thickness |
 
 
-### 🧊 `cubinet double`
+🧊 `cubinet double`
 
 `cubinet double` is a two door European style cabinet. The design has a door margin of 2 mm on each edge.
 
@@ -102,7 +102,7 @@ empty row indicates that user finished defining the top row units and is moving 
 | `cubinet double` | unit width | unit height | unit depth | material thickness |
 
 
-###  🧊 `cubinet drawer`
+🧊 `cubinet drawer`
 
 `cubinet drawer` is a European style cabinet with a drawer and a compartment bellow with a single door. Edge margins for the drawer face and the door are set to 2 mm on each edge. The drawer box is a full length side design, ideal to fastening with pocket screws. The back of the box is cut short for sliding in the bottom panel, into routed grooves, after the drawer box assembly. Grove depth is set to half of the drawer box material thickness. Drawer back to unit back margin set to 20 mm constant.
 
@@ -118,7 +118,7 @@ empty row indicates that user finished defining the top row units and is moving 
 > Notice how some parameters are exposed as user input (eg.: unit width, material thickness) while others are built into Parametric Templates as constants (eg.: door margin: 2mm, groove depth: half of the material thickness). When designing own Parametric Templates, makers are free to decide what variables they want to expose for user entry and what they preffer to setting as constants. It is all about the balance between elegance and clutter, or rather, between being concise and verbose. These are the choices deliberated during the design process of a Parametric Template and may be unique to a maker reflecting their signature style.
 
 
-## Example Kitchen Assembly
+### Example Kitchen Assembly
 
 This example contains handfull of cabinets and voids for a boiler, an extractor and a cooker. Copy/paste this example to your sheet and click "Assemble".
 
