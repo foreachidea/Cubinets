@@ -51,7 +51,7 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 - 🧊 Create a new Document (File -> New or Ctrl + N, etc.)
 - 🧊 Switch to Cubinets Workbench (View -> Workbench -> Cubinets, etc.)
 
-- 🧊 Create a Spreadsheet - (Cubinets -> New Sheet)
+- 🧊 Create a Spreadsheet (Cubinets -> New Sheet)
 - 🧊 Enter data: Directives and Templates; use parameters or omit for defaults 
 - 🧊 Produce Unit Assembly (Cubinets -> Assemble)
 - 🧊 Produce a Cut List (Cubinets -> Cutlist)
@@ -65,49 +65,50 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 ## Directives
 
 ### 🧊 `void`
+
+`void` *directive* creates an empty space in the assembly of a certain width; eg.: space for a cooker, fireplace, imagination, etc.
+
 | | |
 |-|-|
 | `void` | width |
 
-`void` *directive* creates an empty space in the assembly of a certain width; eg.: space for a cooker, fireplace, imagination, etc.
-
 
 ### 🧊 empty row
+
+empty row indicates that user finished defining the top row units and is moving on to enter data for the bottom row units; *in this demo two rows of cabinets supported*
 
 | | |
 |-|-|
 |  |  |
-
-empty row indicates that user finished defining the top row and is moving on to enter data for the bottom row of cabinets; *in this demo two rows of cabinets supported*
 
 
 ## Provided Templates
 
 ### 🧊 `cubinet`
 
+`cubinet` is a one door European style cabinet. The design has a door margin constant of 2 mm on each edge.
+
 | | | | | |
 |-|-|-|-|-|
 | `cubinet` | unit width | unit height | unit depth | material thickness |
 
-`cubinet` is a one door European style cabinet. The design has a door margin constant of 2 mm on each edge.
-
 
 ### 🧊 `cubinet double`
+
+`cubinet double` is a two door European style cabinet. The design has a door margin of 2 mm on each edge.
 
 | | | | | |
 |-|-|-|-|-|
 | `cubinet double` | unit width | unit height | unit depth | material thickness |
 
-`cubinet double` is a two door European style cabinet. The design has a door margin of 2 mm on each edge.
-
 
 ###  🧊 `cubinet drawer`
+
+`cubinet drawer` is a European style cabinet with a drawer and a compartment bellow with a single door. Edge margins for the drawer face and the door are set to 2 mm on each edge. The drawer box is a full length side design, ideal to fastening with pocket screws. The back of the box is cut short for sliding in the bottom panel, into routed grooves, after the drawer box assembly. Grove depth is set to half of the drawer box material thickness. Drawer back to unit back margin set to 20 mm constant.
 
 | | | | | |
 |-|-|-|-|-|
 | `cubinet drawer` | unit width | unit height | unit depth | material thickness | drawer face height | drawer box height | drawer box material thickness | drawer box rail width |
-
-`cubinet drawer` is a European style cabinet with a drawer and a compartment bellow with a single door. Edge margins for the drawer face and a door are set to 2 mm on each edge. The drawer box is a full length side design, ideal to fastening with pocket screws. The back of the box is cut short for sliding in the bottom panel, into routed grooves, after the drawer box assembly. Grove depth is set to half of the drawer box material thickness. Drawer back to unit back margin set to 20 mm constant.
 
 
 > [!TIP]
@@ -119,21 +120,21 @@ empty row indicates that user finished defining the top row and is moving on to 
 
 ## Example Kitchen Assembly
 
-This example contains handfull of cabinets and voids for a boiler, an extractor and a cooker.
+This example contains handfull of cabinets and voids for a boiler, an extractor and a cooker. Copy/paste this example to your sheet and click "Assemble".
 
 ```
-void  400             
+void  600             
 cubinet 400 700 300 18        
 void  600             
-cubinet double  800 700 300 18        
+cubinet double  800 500 300 18        
 cubinet 400 700 300 18        
                 
-cubinet drawer  400 700 300 18  140 100 10  20
-cubinet drawer  400 700 300 18  140 100 10  20
+cubinet drawer  600 700 600 18  140 100 10  20
+cubinet drawer  400 700 600 18  140 100 10  20
 void  600             
-cubinet drawer  400 700 300 18  140 100 10  20
-cubinet drawer  400 700 300 18  140 100 10  20
-cubinet drawer  400 700 300 18  140 100 10  20
+cubinet drawer  400 700 600 18  140 100 10  20
+cubinet drawer  400 700 600 18  140 100 10  20
+cubinet drawer  400 700 600 18  140 100 10  20
 ```
 
 💫 Here's the resut:
