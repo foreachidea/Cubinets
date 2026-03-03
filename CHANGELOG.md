@@ -1,9 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-
 ## TODO / Upcoming Features
 
 
@@ -29,3 +25,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - add: void as a directive, not a template
 - add: btn new sheet
 - fix: parts cloned from template to remain cubes - Part::Box
+
+## [0.0.0-demo.1] - 2026-03-03
+
+### Added
+- add: release-dryrun.sh
+- add: changelog & upd related release.sh
+- add: commit-msg git-hook
+- add: automated changelog
+
+### Updated
+- upd: legacy changelog
+- upd: release-dryrun.sh is now verbose
+
+### Fixed
+- fix: release bugs
+- fix: resulting parts are now Part::Box
+- fix: if temp opened by user, copy it and process the copy; prevents ux/ui issues where user opened templates are closed
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
