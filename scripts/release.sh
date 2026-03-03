@@ -89,6 +89,24 @@
 # 4. Push:
 #      git push origin main --tags
 #
+#
+# TODO / UPCOMING FEATURES
+# ------------------------
+# - You can maintain a "TODO / Upcoming Features" section at the top of CHANGELOG.md.
+# - The script will detect this section and leave it untouched.
+# - New release sections are prepended *below* the TODO section automatically.
+#
+# Example layout:
+#
+# ## TODO / Upcoming Features
+# - Add cabinet presets
+# - Improve cloning speed
+#
+# ## [1.4.0] - 2026-03-03
+# ### Added
+# - add: cabinet module
+# ### Fixed
+# - fix: bbox rotation issue
 ############################################
 
 #!/usr/bin/env bash
@@ -279,8 +297,38 @@ fi
 # PREPEND TO CHANGELOG
 ############################################
 
-if [[ -f "$CHANGELOG_FILE" ]]; then
-  cat "$CHANGELOG_FILE" >> "$TMP_FILE"
+#if [[ -f "$CHANGELOG_FILE" ]]; then
+#  cat "$CHANGELOG_FILE" >> "$TMP_FILE"
+#fi
+#
+#mv "$TMP_FILE" "$CHANGELOG_FILE"
+
+# upd: to respect TODO section at the begining of the changelog
+# Extract TODO section if exists
+TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag' "$CHANGELOG_FILE" 2>/dev/null || true)
+
+# Extract existing changelog below TODO
+EXISTING_CHANGELOG=$(awk 'BEGIN{flag=0}/## TODO/{flag=1;next}/## \[/{flag=0}flag==0' "$CHANGELOG_FILE" 2>/dev/null || true)
+
+# Prepend new release section after TODO
+TMP_FILE=$(mktemp)
+
+echo "# Changelog" >> "$TMP_FILE"
+echo "" >> "$TMP_FILE"
+
+# Keep TODO section
+if [[ -n "$TODO_SECTION" ]]; then
+  echo "## TODO / Upcoming Features" >> "$TMP_FILE"
+  echo "$TODO_SECTION" >> "$TMP_FILE"
+  echo "" >> "$TMP_FILE"
+fi
+
+# Append new release section (already generated in $NEW_VERSION section)
+cat "$TMP_RELEASE_SECTION" >> "$TMP_FILE"
+
+# Append rest of changelog
+if [[ -n "$EXISTING_CHANGELOG" ]]; then
+  echo "$EXISTING_CHANGELOG" >> "$TMP_FILE"
 fi
 
 mv "$TMP_FILE" "$CHANGELOG_FILE"
