@@ -319,6 +319,12 @@ fi
 cat "$TMP_RELEASE_SECTION" >> "$TMP_FILE"
 echo "" >> "$TMP_FILE"
 
+# Extract existing releases (everything after TODO, before legacy)
+EXISTING_RELEASES=""
+if grep -q "## \[" "$CHANGELOG_FILE"; then
+    EXISTING_RELEASES=$(awk 'flag; /## \[/{flag=1}' "$CHANGELOG_FILE" | sed '1d')
+fi
+
 # Append existing releases (older first → preserves order)
 if [[ -n "$EXISTING_RELEASES" ]]; then
   echo "$EXISTING_RELEASES" >> "$TMP_FILE"
