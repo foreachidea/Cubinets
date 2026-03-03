@@ -4,6 +4,24 @@
 
 - add: pipedreams
 
+## [0.0.0-demo.1] - 2026-03-03
+
+### Added
+- add: release-dryrun.sh
+- add: changelog & upd related release.sh
+- add: commit-msg git-hook
+- add: automated changelog
+
+### Fixed
+- fix: release.sh bugs
+- fix: release bugs
+- fix: resulting parts are now Part::Box
+- fix: if temp opened by user, copy it and process the copy; prevents ux/ui issues where user opened templates are closed
+
+### Updated
+- upd: legacy changelog
+- upd: release-dryrun.sh is now verbose
+
 ## Early Development / Legacy Commits
 
 - add: assemble command
