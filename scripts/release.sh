@@ -132,17 +132,20 @@ CHANGELOG_FILE="CHANGELOG.md"
 ############################################
 
 PRERELEASE_LABEL=""
-if [[ "${1:-}" == "--pre" ]]; then
-  PRERELEASE_LABEL="${2:-}"
-  if [[ -z "$PRERELEASE_LABEL" ]]; then
+DEBUG=0
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --pre)  PRERELEASE_LABEL="$2"; shift 2 ;;
+        --debug) DEBUG=1; shift ;;
+        *) echo "❌ Unknown parameter: $1"; exit 1 ;;
+    esac
+done
+
+# Validate prerelease label if --pre was used
+if [[ -n "$PRERELEASE_LABEL" ]] && [[ -z "$PRERELEASE_LABEL" ]]; then
     echo "❌ You must specify prerelease label (alpha|beta|rc etc)."
     exit 1
-  fi
-fi
-
-DEBUG=0
-if [[ "${1:-}" == "--debug" ]]; then
-  DEBUG=1
 fi
 
 ############################################
@@ -323,7 +326,7 @@ fi
 TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract existing releases
-RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{flag=0} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
+RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{exit} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract legacy
 LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE" 2>/dev/null || true)
@@ -345,13 +348,13 @@ fi
 cat "$TMP_RELEASE_SECTION" >> "$TMP_FILE"
 echo "" >> "$TMP_FILE"
 
-# Append older releases
+# Older releases
 if [[ -n "$RELEASES_SECTION" ]]; then
   echo "$RELEASES_SECTION" >> "$TMP_FILE"
   echo "" >> "$TMP_FILE"
 fi
 
-# Append legacy once
+# Legacy only at the end
 if [[ -n "$LEGACY_SECTION" ]]; then
   echo "$LEGACY_SECTION" >> "$TMP_FILE"
 fi
