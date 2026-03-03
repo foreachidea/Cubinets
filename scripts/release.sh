@@ -293,11 +293,62 @@ do
   fi
 done
 
-# Only print CHANGELOG if --debug is passed as a parameter
-if [[ $DEBUG -eq 1 ]]; then
+############################################
+# PREPEND TO CHANGELOG
+############################################
+
+# Extract TODO section
+TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
+
+# Extract existing releases
+RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{exit} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
+
+# Extract legacy
+LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE" 2>/dev/null || true)
+
+FULL_CHANGELOG=$(mktemp)
+
+{
+  echo "# Changelog"
+  echo ""
+
+  # TODO
+  if [[ -n "$TODO_SECTION" ]]; then
+    echo "## TODO / Upcoming Features"
+    echo "$TODO_SECTION"
+    echo ""
+  fi
+
+  # New release first
   cat "$TMP_RELEASE_SECTION"
+  echo ""
+
+  # Older releases
+  if [[ -n "$RELEASES_SECTION" ]]; then
+    echo "$RELEASES_SECTION"
+    echo ""
+  fi
+
+  # Legacy only at the end
+  if [[ -n "$LEGACY_SECTION" ]]; then
+    echo "$LEGACY_SECTION"
+  fi
+} > "$FULL_CHANGELOG"
+
+
+# DEBUG MODE: just print
+if [[ $DEBUG -eq 1 ]]; then
+  cat "$FULL_CHANGELOG"
+  rm -f "$FULL_CHANGELOG" "$TMP_RELEASE_SECTION"
   exit 0
 fi
+
+
+# Normal: write to CHANGELOG.md
+mv "$FULL_CHANGELOG" "$CHANGELOG_FILE"
+
+# Clean up temporary release section
+rm -f "$TMP_RELEASE_SECTION"
 
 ############################################
 # GENERATE COMPARE LINK (GitHub/GitLab)
@@ -317,52 +368,6 @@ if [[ -n "$REMOTE_URL" ]]; then
     echo "" >> "$TMP_RELEASE_SECTION"
   fi
 fi
-
-############################################
-# PREPEND TO CHANGELOG
-############################################
-
-# Extract TODO section
-TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
-
-# Extract existing releases
-RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{exit} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
-
-# Extract legacy
-LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE" 2>/dev/null || true)
-
-# Build new changelog
-TMP_FILE=$(mktemp)
-
-echo "# Changelog" >> "$TMP_FILE"
-echo "" >> "$TMP_FILE"
-
-# TODO
-if [[ -n "$TODO_SECTION" ]]; then
-  echo "## TODO / Upcoming Features" >> "$TMP_FILE"
-  echo "$TODO_SECTION" >> "$TMP_FILE"
-  echo "" >> "$TMP_FILE"
-fi
-
-# New release first
-cat "$TMP_RELEASE_SECTION" >> "$TMP_FILE"
-echo "" >> "$TMP_FILE"
-
-# Older releases
-if [[ -n "$RELEASES_SECTION" ]]; then
-  echo "$RELEASES_SECTION" >> "$TMP_FILE"
-  echo "" >> "$TMP_FILE"
-fi
-
-# Legacy only at the end
-if [[ -n "$LEGACY_SECTION" ]]; then
-  echo "$LEGACY_SECTION" >> "$TMP_FILE"
-fi
-
-mv "$TMP_FILE" "$CHANGELOG_FILE"
-
-# Clean up temporary files
-rm -f "$TMP_RELEASE_SECTION"
 
 ############################################
 # UPDATE VERSION FILE
