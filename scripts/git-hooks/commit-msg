@@ -16,7 +16,7 @@ MSG_FILE="$1"
 FIRST_LINE=$(head -n1 "$MSG_FILE")
 
 # Allowed types
-TYPES="add|upd|dep|rem|fix|sec|tes|cle"
+TYPES="add|cle|dep|fix|rem|sec|upd|hid|tes"
 
 # Regex:
 #   ^(type)(!?)\: space text

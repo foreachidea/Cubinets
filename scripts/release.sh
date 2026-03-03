@@ -11,7 +11,7 @@
 # ----------------------
 # Commits must start with one of:
 #
-#   add|cle|dep|fix|rem|sec|upd|hid|tes
+#   add|dep|fix|rem|sec|upd|hid|tes
 #
 #	eg.: "add: "
 #
@@ -27,8 +27,8 @@
 # NOTES:
 # - Messages must be lowercase.
 # - Only these types are included in releases:
-#     add, upd, dep, rem, fix, sec
-# - tes: and cle: are ignored for changelog and version bump.
+#     add|dep|fix|rem|sec|upd
+# - hid|tes are ignored for changelog and version bump.
 #
 #
 # VERSIONING RULES (SemVer)
@@ -119,7 +119,7 @@ set -euo pipefail
 ############################################
 
 # Commit types that are included in changelog
-INCLUDE_TYPES="add|cle|dep|fix|rem|sec|upd"
+INCLUDE_TYPES="add|dep|fix|rem|sec|upd"
 
 # Commit types excluded from changelog
 EXCLUDED_TYPES="hid|tes"
@@ -188,7 +188,11 @@ fi
 # COLLECT COMMITS
 ############################################
 
-COMMITS=$(git log $RANGE --pretty=format:"%s")
+if [[ -z "$LAST_TAG" ]]; then
+  COMMITS=$(git log --pretty=format:"%s")
+else
+  COMMITS=$(git log "$LAST_TAG"..HEAD --pretty=format:"%s")
+fi
 
 # Filter release-worthy commits
 RELEASE_COMMITS=$(echo "$COMMITS" | grep -E "^(${INCLUDE_TYPES})(!?)\:" || true)
@@ -208,9 +212,11 @@ BUMP="patch"
 if echo "$RELEASE_COMMITS" | grep -qE "^(${INCLUDE_TYPES})!\:"; then
   BUMP="major"
 
-# Feature change → minor
 elif echo "$RELEASE_COMMITS" | grep -qE "^(add|upd)(!?)\:"; then
   BUMP="minor"
+
+elif echo "$RELEASE_COMMITS" | grep -qE "^(dep|fix|rem|sec)(!?)\:"; then
+  BUMP="patch"
 fi
 
 # Only bump base version if NOT prerelease continuation
@@ -257,17 +263,20 @@ TMP_RELEASE_SECTION=$(mktemp)
 echo "## [$NEW_VERSION] - $DATE" >> "$TMP_RELEASE_SECTION"
 echo "" >> "$TMP_RELEASE_SECTION"
 
-for TYPE in add upd dep rem fix sec
+for TYPE in ${INCLUDE_TYPES//|/ }
 do
-  TYPE_COMMITS=$(echo "$RELEASE_COMMITS" | grep -E "^(${TYPE})(!?)\:" || true | awk '!seen[$0]++')
+  TYPE_COMMITS=$(echo "$RELEASE_COMMITS" \
+  | grep -E "^(${TYPE})(!?)\:" \
+  | awk '!seen[$0]++' \
+  || true)
 
   if [[ -n "$TYPE_COMMITS" ]]; then
     case $TYPE in
       add) echo "### Added" >> "$TMP_RELEASE_SECTION" ;;
-      upd) echo "### Updated" >> "$TMP_RELEASE_SECTION" ;;
       dep) echo "### Deprecated" >> "$TMP_RELEASE_SECTION" ;;
-      rem) echo "### Removed" >> "$TMP_RELEASE_SECTION" ;;
       fix) echo "### Fixed" >> "$TMP_RELEASE_SECTION" ;;
+      rem) echo "### Removed" >> "$TMP_RELEASE_SECTION" ;;
+      upd) echo "### Updated" >> "$TMP_RELEASE_SECTION" ;;
       sec) echo "### Security" >> "$TMP_RELEASE_SECTION" ;;
     esac
 
@@ -300,13 +309,13 @@ fi
 ############################################
 
 # Extract TODO section
-TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag==1' "$CHANGELOG_FILE")
+TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract existing releases
-RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{flag=0} flag==1' "$CHANGELOG_FILE")
+RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{flag=0} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract legacy
-LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE")
+LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Build new changelog
 TMP_FILE=$(mktemp)

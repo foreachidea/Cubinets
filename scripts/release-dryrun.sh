@@ -25,7 +25,7 @@ set -euo pipefail
 # or any other format are ignored.
 ############################################
 
-INCLUDE_TYPES="add|cle|dep|fix|rem|sec|upd"
+INCLUDE_TYPES="add|dep|fix|rem|sec|upd"
 EXCLUDE_TYPES="hid|tes"
 
 # Check if --all flag is used
@@ -55,6 +55,7 @@ fi
 # Collect commit messages
 ############################################
 COMMITS=$(git log $RANGE --pretty=format:"%s")
+
 
 if [[ -z "$COMMITS" ]]; then
   echo "⚠️  No commits found in the range."
