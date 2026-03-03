@@ -11,7 +11,9 @@
 # ----------------------
 # Commits must start with one of:
 #
-#   add:  upd:  dep:  rem:  fix:  sec:  tes:  cle:
+#   add|cle|dep|fix|rem|sec|upd|hid|tes
+#
+#	eg.: "add: "
 #
 # Breaking changes must use:
 #
@@ -117,10 +119,10 @@ set -euo pipefail
 ############################################
 
 # Commit types that are included in changelog
-INCLUDE_TYPES="add|upd|dep|rem|fix|sec"
+INCLUDE_TYPES="add|cle|dep|fix|rem|sec|upd"
 
 # Commit types excluded from changelog
-EXCLUDED_TYPES="tes|cle"
+EXCLUDED_TYPES="hid|tes"
 
 VERSION_FILE="VERSION"
 CHANGELOG_FILE="CHANGELOG.md"
@@ -350,7 +352,7 @@ echo "$NEW_VERSION" > "$VERSION_FILE"
 ############################################
 
 git add "$VERSION_FILE" "$CHANGELOG_FILE"
-git commit -m "cle: release v$NEW_VERSION"
+git commit -m "hid: release v$NEW_VERSION"
 
 git tag -a "v$NEW_VERSION" -m "Release v$NEW_VERSION"
 

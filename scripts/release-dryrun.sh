@@ -25,8 +25,8 @@ set -euo pipefail
 # or any other format are ignored.
 ############################################
 
-INCLUDE_TYPES="add|upd|dep|rem|fix|sec"
-EXCLUDE_TYPES="tes|cle"
+INCLUDE_TYPES="add|cle|dep|fix|rem|sec|upd"
+EXCLUDE_TYPES="hid|tes"
 
 # Check if --all flag is used
 USE_ALL=false
