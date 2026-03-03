@@ -2,12 +2,26 @@
 <package format="1">
 	<name>Cubinets</name>
 	<version>0.1.0-demo</version>
-	<description>Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design process. Using Parametric Templates, visualise Cabinet Assemblies in minutes and Generate Cut Lists instantly. </description>
+	<date>2026-03-03</date>
+	<description>Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design process. Visualise Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.</description>
+	<author email="v.rimkevicius@gmail.com">Vytautas Rimkevicius</author>
 	<maintainer email="v.rimkevicius@gmail.com">Vytautas Rimkevicius</maintainer>
 	<license>GPL-3.0</license>
+	<icon>./resources/cubinets_icon.png</icon>
 	<url type="repository">https://github.com/foreachidea/Cubinets</url>
-	<freecad min="1.0.2" max="1.0.2" />
+	<url type="readme">https://github.com/foreachidea/Cubinets/blob/main/README.md</url>
+	<url type="bugtracker">https://github.com/foreachidea/Cubinets/issues</url>
 	<content>
-		<workbench>InitGui.py</workbench>
+		<workbench>
+		<classname>CubinetsWorkbench</classname>
+			<subdirectory>./</subdirectory>
+			<icon>./resources/cubinets_icon.png</icon>
+			<tag>cubinets</tag>
+			<tag>cabinet</tag>
+			<tag>cabinets</tag>
+			<pythonmin>3.9</pythonmin>
+			<depend type="internal">spreadsheet</depend>
+			<depend type="internal">part</depend>
+		</workbench>
 	</content>
 </package>
