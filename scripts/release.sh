@@ -304,7 +304,7 @@ TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0} flag==1' "$CHANGELOG_F
 RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{exit} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract legacy
-LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE" 2>/dev/null || true)
+LEGACY_SECTION=$(awk '/## Early Development/{flag=1; next} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 FULL_CHANGELOG=$(mktemp)
 
