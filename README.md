@@ -33,7 +33,7 @@ Cabinet style is a constant - European style, shaker style, etc. Then there are 
 - ✅ Download Cubinets - <a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank" rel="noopener noreferrer">latest release</a>
 - ✅ Extract archive contents to FreeCAD workbenches' folder:
   - 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/**
-  - 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\**
+  - 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\\**
   - 🐧 On **Linux** it is usually **/usr/share/freecad/Mod/**
     - For snap versions (for instance on Ubuntu) it is **$HOME/snap/freecad/common/Mod/**
 
