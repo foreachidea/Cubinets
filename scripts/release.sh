@@ -297,41 +297,42 @@ fi
 # PREPEND TO CHANGELOG
 ############################################
 
-# Extract TODO section if exists
+# Extract TODO section
 TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag==1' "$CHANGELOG_FILE")
 
-# Extract existing changelog below TODO
-EXISTING_CHANGELOG=$(awk '/## \[/{flag=1}flag{print}' "$CHANGELOG_FILE")
+# Extract existing releases
+RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{flag=0} flag==1' "$CHANGELOG_FILE")
 
-# Prepend new release section after TODO
+# Extract legacy
+LEGACY_SECTION=$(awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE")
+
+# Build new changelog
 TMP_FILE=$(mktemp)
 
-# Start with TODO
 echo "# Changelog" >> "$TMP_FILE"
 echo "" >> "$TMP_FILE"
+
+# TODO
 if [[ -n "$TODO_SECTION" ]]; then
   echo "## TODO / Upcoming Features" >> "$TMP_FILE"
   echo "$TODO_SECTION" >> "$TMP_FILE"
   echo "" >> "$TMP_FILE"
 fi
 
-# New release at top of releases
+# New release first
 cat "$TMP_RELEASE_SECTION" >> "$TMP_FILE"
 echo "" >> "$TMP_FILE"
 
-# Extract existing releases (everything after TODO, before legacy)
-EXISTING_RELEASES=""
-if grep -q "## \[" "$CHANGELOG_FILE"; then
-    EXISTING_RELEASES=$(awk 'flag; /## \[/{flag=1}' "$CHANGELOG_FILE" | sed '1d')
+# Append older releases
+if [[ -n "$RELEASES_SECTION" ]]; then
+  echo "$RELEASES_SECTION" >> "$TMP_FILE"
+  echo "" >> "$TMP_FILE"
 fi
 
-# Append existing releases (older first → preserves order)
-if [[ -n "$EXISTING_RELEASES" ]]; then
-  echo "$EXISTING_RELEASES" >> "$TMP_FILE"
+# Append legacy once
+if [[ -n "$LEGACY_SECTION" ]]; then
+  echo "$LEGACY_SECTION" >> "$TMP_FILE"
 fi
-
-# Append legacy commits if they exist
-awk '/## Early Development/{flag=1} flag' "$CHANGELOG_FILE" >> "$TMP_FILE"
 
 mv "$TMP_FILE" "$CHANGELOG_FILE"
 
