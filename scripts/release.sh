@@ -257,7 +257,7 @@ echo "" >> "$TMP_RELEASE_SECTION"
 
 for TYPE in add upd dep rem fix sec
 do
-  TYPE_COMMITS=$(echo "$RELEASE_COMMITS" | grep -E "^(${TYPE})(!?)\:" || true)
+  TYPE_COMMITS=$(echo "$RELEASE_COMMITS" | grep -E "^(${TYPE})(!?)\:" || true | awk '!seen[$0]++')
 
   if [[ -n "$TYPE_COMMITS" ]]; then
     case $TYPE in
