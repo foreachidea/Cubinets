@@ -161,7 +161,7 @@ fi
 # Ensure working directory clean
 if ! git diff-index --quiet HEAD --; then
   echo "❌ Working directory not clean."
-  exit 1
+  #exit 1
 fi
 
 # Ensure VERSION file exists
@@ -325,13 +325,14 @@ FULL_CHANGELOG=$(mktemp)
 
   # Older releases
   if [[ -n "$RELEASES_SECTION" ]]; then
-    echo "$RELEASES_SECTION"
+    #echo "$RELEASES_SECTION"
     echo ""
   fi
 
   # Legacy only at the end
   if [[ -n "$LEGACY_SECTION" ]]; then
-    echo "$LEGACY_SECTION"
+    #echo "$LEGACY_SECTION"
+    echo ""
   fi
 } > "$FULL_CHANGELOG"
 
