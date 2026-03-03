@@ -19,7 +19,7 @@ import os
 import random
 from collections import defaultdict
 from Freezer import Freezer
-from PySide2 import QtCore
+from PySide import QtCore
 import shutil
 
 class cmdAssemble:
