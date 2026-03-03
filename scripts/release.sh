@@ -293,6 +293,12 @@ do
   fi
 done
 
+# Only print CHANGELOG if --debug is passed as a parameter
+if [[ $DEBUG -eq 1 ]]; then
+  cat "$TMP_RELEASE_SECTION"
+  exit 0
+fi
+
 ############################################
 # GENERATE COMPARE LINK (GitHub/GitLab)
 ############################################
@@ -357,12 +363,6 @@ mv "$TMP_FILE" "$CHANGELOG_FILE"
 
 # Clean up temporary files
 rm -f "$TMP_RELEASE_SECTION"
-
-# Only print CHANGELOG if --debug is passed as a parameter
-if [[ $DEBUG -eq 1 ]]; then
-  cat "$TMP_RELEASE_SECTION"
-  exit 0
-fi
 
 ############################################
 # UPDATE VERSION FILE
