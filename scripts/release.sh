@@ -140,6 +140,11 @@ if [[ "${1:-}" == "--pre" ]]; then
   fi
 fi
 
+DEBUG=0
+if [[ "${1:-}" == "--debug" ]]; then
+  DEBUG=1
+fi
+
 ############################################
 # HARDENING CHECKS
 ############################################
@@ -284,6 +289,12 @@ do
     echo "" >> "$TMP_RELEASE_SECTION"
   fi
 done
+
+# Only print CHANGELOG if --debug is passed as a parameter
+if [[ $DEBUG -eq 1 ]]; then
+  cat "$TMP_RELEASE_SECTION"
+  exit 0
+fi
 
 ############################################
 # GENERATE COMPARE LINK (GitHub/GitLab)
