@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # add: Added for new features.
 # ---cha: Changed for changes in existing functionality.
 # upd: Updated existing functionality.
@@ -9,8 +11,6 @@
 # tes: Added a test
 # ---ref: Refactor
 # cle: Cleanup/Refactor
-
-#!/usr/bin/env bash
 
 MSG_FILE="$1"
 FIRST_LINE=$(head -n1 "$MSG_FILE")
