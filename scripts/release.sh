@@ -186,24 +186,27 @@ IFS='.' read -r MAJOR MINOR PATCH <<< "$BASE_VERSION"
 
 LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || true)
 
-if [[ -z "$LAST_TAG" ]]; then
-  RANGE=""
-else
+if [[ -n "$LAST_TAG" ]]; then
   RANGE="$LAST_TAG..HEAD"
+else
+  # No previous tag → only include commits *after the TODO/Legacy cutoff*
+  # This avoids pulling in Early Development commits
+  RANGE=""
 fi
 
 ############################################
 # COLLECT COMMITS
 ############################################
 
-if [[ -z "$LAST_TAG" ]]; then
-  COMMITS=$(git log --pretty=format:"%s")
-else
-  COMMITS=$(git log "$LAST_TAG"..HEAD --pretty=format:"%s")
-fi
+# Get commit messages in the range
+COMMITS=$(git log $RANGE --pretty=format:"%s")
 
-# Filter release-worthy commits
-RELEASE_COMMITS=$(echo "$COMMITS" | grep -E "^(${INCLUDE_TYPES})(!?)\:" || true)
+# Filter only release-worthy commits (include cle)
+# Exclude commits that are legacy placeholders
+RELEASE_COMMITS=$(echo "$COMMITS" \
+  | grep -E "^(${INCLUDE_TYPES})(!?)\:" \
+  | grep -v -i "Legacy Commits\|Early Development" \
+  || true)
 
 if [[ -z "$RELEASE_COMMITS" ]]; then
   echo "ℹ No release-worthy commits found."
@@ -261,26 +264,27 @@ else
 fi
 
 ############################################
-# GENERATE CHANGELOG SECTION
+# GENERATE TMP RELEASE SECTION
 ############################################
 
 DATE=$(date +%Y-%m-%d)
-
 TMP_RELEASE_SECTION=$(mktemp)
 
 echo "## [$NEW_VERSION] - $DATE" >> "$TMP_RELEASE_SECTION"
 echo "" >> "$TMP_RELEASE_SECTION"
 
+# Loop dynamically over all include types
 for TYPE in ${INCLUDE_TYPES//|/ }
 do
   TYPE_COMMITS=$(echo "$RELEASE_COMMITS" \
-  | grep -E "^(${TYPE})(!?)\:" \
-  | awk '!seen[$0]++' \
-  || true)
+    | grep -E "^(${TYPE})(!?)\:" \
+    | awk '!seen[$0]++' \
+    || true)
 
   if [[ -n "$TYPE_COMMITS" ]]; then
     case $TYPE in
       add) echo "### Added" >> "$TMP_RELEASE_SECTION" ;;
+      cle) echo "### Cleanups" >> "$TMP_RELEASE_SECTION" ;;
       dep) echo "### Deprecated" >> "$TMP_RELEASE_SECTION" ;;
       fix) echo "### Fixed" >> "$TMP_RELEASE_SECTION" ;;
       rem) echo "### Removed" >> "$TMP_RELEASE_SECTION" ;;
@@ -288,6 +292,7 @@ do
       sec) echo "### Security" >> "$TMP_RELEASE_SECTION" ;;
     esac
 
+    # Keep duplicates; each commit prints individually
     echo "$TYPE_COMMITS" | sed 's/^/- /' >> "$TMP_RELEASE_SECTION"
     echo "" >> "$TMP_RELEASE_SECTION"
   fi
@@ -298,13 +303,26 @@ done
 ############################################
 
 # Extract TODO section
-TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
+TODO_SECTION=$(awk '
+  /^## TODO/ {flag=1; next}               # start after TODO
+  /^## \[/ {flag=0}                        # stop at first release header
+  /^## Early Development/ {flag=0; exit}   # also stop at legacy
+  flag==1 {print}
+' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract existing releases
-RELEASES_SECTION=$(awk '/## \[/{flag=1} /## Early Development/{exit} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
+RELEASES_SECTION=$(awk '
+  BEGIN {printing=0}
+  /^## \[/ {printing=1}           # start printing at first release
+  /^## Early Development/ {exit}  # stop before legacy
+  printing {print}
+' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 # Extract legacy
-LEGACY_SECTION=$(awk '/## Early Development/{flag=1; next} flag==1' "$CHANGELOG_FILE" 2>/dev/null || true)
+LEGACY_SECTION=$(awk '
+  /^## Early Development/ {flag=1; next}
+  flag==1 {print}
+' "$CHANGELOG_FILE" 2>/dev/null || true)
 
 FULL_CHANGELOG=$(mktemp)
 
@@ -321,18 +339,21 @@ FULL_CHANGELOG=$(mktemp)
 
   # New release first
   cat "$TMP_RELEASE_SECTION"
-  echo ""
+  #echo ""
 
   # Older releases
   if [[ -n "$RELEASES_SECTION" ]]; then
-    #echo "$RELEASES_SECTION"
-    echo ""
+    echo "$RELEASES_SECTION"
+    #echo ""
   fi
+
+  echo "## Early Development / Legacy Commits"
+  #echo ""
 
   # Legacy only at the end
   if [[ -n "$LEGACY_SECTION" ]]; then
-    #echo "$LEGACY_SECTION"
-    echo ""
+    echo "$LEGACY_SECTION"
+    #echo ""
   fi
 } > "$FULL_CHANGELOG"
 

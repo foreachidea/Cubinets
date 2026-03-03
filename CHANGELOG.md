@@ -2,10 +2,9 @@
 
 ## TODO / Upcoming Features
 
-## Early Development / Legacy Commits
+- add: pipedreams
 
-<!-- The following entries are from early development before structured releases.
-     They are included for historical reference. Dates omitted. -->
+## Early Development / Legacy Commits
 
 - add: assemble command
 - add: cubinet - simple cabinet template
