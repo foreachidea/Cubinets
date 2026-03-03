@@ -1,0 +1,44 @@
+# add: Added for new features.
+# ---cha: Changed for changes in existing functionality.
+# upd: Updated existing functionality.
+# dep: Deprecated for soon-to-be removed features.
+# rem: Removed for now removed features.
+# fix: Fixed for any bug fixes.
+# sec: Security
+#
+# tes: Added a test
+# ---ref: Refactor
+# cle: Cleanup/Refactor
+
+#!/usr/bin/env bash
+
+MSG_FILE="$1"
+FIRST_LINE=$(head -n1 "$MSG_FILE")
+
+# Allowed types
+TYPES="add|upd|dep|rem|fix|sec|tes|cle"
+
+# Regex:
+#   ^(type)(!?)\: space text
+REGEX="^(${TYPES})(!?)\: .+"
+
+# Enforce lowercase
+if [[ "$FIRST_LINE" != "${FIRST_LINE,,}" ]]; then
+  echo "❌ Commit message must be lowercase."
+  exit 1
+fi
+
+# Validate format
+if ! [[ "$FIRST_LINE" =~ $REGEX ]]; then
+  echo "❌ Invalid commit message format."
+  echo ""
+  echo "Must start with:"
+  echo "  add: upd: dep: rem: fix: sec: tes: cle:"
+  echo ""
+  echo "May contain exclamation mark to indicate breaking change, eg.:"
+  echo "  add!: etc."
+  echo ""
+  exit 1
+fi
+
+exit 0
