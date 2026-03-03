@@ -250,10 +250,10 @@ fi
 
 DATE=$(date +%Y-%m-%d)
 
-TMP_FILE=$(mktemp)
+TMP_RELEASE_SECTION=$(mktemp)
 
-echo "## [$NEW_VERSION] - $DATE" >> "$TMP_FILE"
-echo "" >> "$TMP_FILE"
+echo "## [$NEW_VERSION] - $DATE" >> "$TMP_RELEASE_SECTION"
+echo "" >> "$TMP_RELEASE_SECTION"
 
 for TYPE in add upd dep rem fix sec
 do
@@ -261,16 +261,16 @@ do
 
   if [[ -n "$TYPE_COMMITS" ]]; then
     case $TYPE in
-      add) echo "### Added" >> "$TMP_FILE" ;;
-      upd) echo "### Updated" >> "$TMP_FILE" ;;
-      dep) echo "### Deprecated" >> "$TMP_FILE" ;;
-      rem) echo "### Removed" >> "$TMP_FILE" ;;
-      fix) echo "### Fixed" >> "$TMP_FILE" ;;
-      sec) echo "### Security" >> "$TMP_FILE" ;;
+      add) echo "### Added" >> "$TMP_RELEASE_SECTION" ;;
+      upd) echo "### Updated" >> "$TMP_RELEASE_SECTION" ;;
+      dep) echo "### Deprecated" >> "$TMP_RELEASE_SECTION" ;;
+      rem) echo "### Removed" >> "$TMP_RELEASE_SECTION" ;;
+      fix) echo "### Fixed" >> "$TMP_RELEASE_SECTION" ;;
+      sec) echo "### Security" >> "$TMP_RELEASE_SECTION" ;;
     esac
 
-    echo "$TYPE_COMMITS" | sed 's/^/- /' >> "$TMP_FILE"
-    echo "" >> "$TMP_FILE"
+    echo "$TYPE_COMMITS" | sed 's/^/- /' >> "$TMP_RELEASE_SECTION"
+    echo "" >> "$TMP_RELEASE_SECTION"
   fi
 done
 
@@ -288,8 +288,8 @@ if [[ -n "$REMOTE_URL" ]]; then
 
   if [[ -n "$LAST_TAG" ]]; then
     COMPARE_URL="$REPO_URL/compare/$LAST_TAG...v$NEW_VERSION"
-    echo "[Full Changelog]($COMPARE_URL)" >> "$TMP_FILE"
-    echo "" >> "$TMP_FILE"
+    echo "[Full Changelog]($COMPARE_URL)" >> "$TMP_RELEASE_SECTION"
+    echo "" >> "$TMP_RELEASE_SECTION"
   fi
 fi
 
@@ -297,13 +297,6 @@ fi
 # PREPEND TO CHANGELOG
 ############################################
 
-#if [[ -f "$CHANGELOG_FILE" ]]; then
-#  cat "$CHANGELOG_FILE" >> "$TMP_FILE"
-#fi
-#
-#mv "$TMP_FILE" "$CHANGELOG_FILE"
-
-# upd: to respect TODO section at the begining of the changelog
 # Extract TODO section if exists
 TODO_SECTION=$(awk '/## TODO/{flag=1;next}/## \[/{flag=0}flag' "$CHANGELOG_FILE" 2>/dev/null || true)
 
@@ -323,7 +316,7 @@ if [[ -n "$TODO_SECTION" ]]; then
   echo "" >> "$TMP_FILE"
 fi
 
-# Append new release section (already generated in $NEW_VERSION section)
+# Append new release section
 cat "$TMP_RELEASE_SECTION" >> "$TMP_FILE"
 
 # Append rest of changelog
@@ -332,6 +325,9 @@ if [[ -n "$EXISTING_CHANGELOG" ]]; then
 fi
 
 mv "$TMP_FILE" "$CHANGELOG_FILE"
+
+# Clean up temporary files
+rm -f "$TMP_RELEASE_SECTION"
 
 ############################################
 # UPDATE VERSION FILE
