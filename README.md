@@ -23,7 +23,7 @@ https://foreachidea.github.io/media/Cubinets/concept_demo.mp4
 
 While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accuratelly. Using Cubinets you can outsource repetitive tasks to computers, they love it!
 
-Let's put it this way: Cabinet style is a constant - European style, shaker style, you name it. Then there are variables: unit dimensions, material thikness, etc. It only makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different variable values.
+Let's put it this way: Cabinet style is a constant - European style, shaker style, you name it. Then there are variables: unit dimensions, material thickness, etc. It only makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different variable values.
 
 
 # 🛠️ Installation
