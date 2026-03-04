@@ -9,7 +9,7 @@ Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and 
 
 ## 💡 Tell me more...
 
-Designing Cabinet Assemblies may be a repetative business. Let's say you are working on a kitchen. You arrive on site, take meassurements of the room, plan the position and space of appliances, select cabinet style and materials. Then produce a design, present it to client, revise, redesign, prepare cutlist and start the production...
+Designing Cabinet Assemblies may be a repetitive business. Let's say you are working on a kitchen. You arrive on site, take measurements of the room, plan the position and space of appliances, select cabinet style and materials. Then produce a design, present it to client, revise, redesign, prepare cut list and start the production...
 
 What if you could visualise the end result first thing you arrive on site? In minutes!
 
@@ -21,7 +21,7 @@ https://foreachidea.github.io/media/Cubinets/concept_demo.mp4
 
 ## 💡 What's the idea...
 
-While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accuratelly. Using Cubinets you can outsource repetitive tasks to computers, they love it!
+While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accurately. Using Cubinets you can outsource repetitive tasks to computers, they love it!
 
 Let's put it this way: Cabinet style is a constant - European style, shaker style, you name it. Then there are variables: unit dimensions, material thickness, etc. It only makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different variable values.
 
@@ -109,15 +109,15 @@ empty row indicates that user has finished defining the top row of units and is 
 
 
 > [!TIP]
-> Users are encouraged to adopt and modify exsisting or design and use their own Parametric Templates.
+> Users are encouraged to adopt and modify existing or design and use their own Parametric Templates.
 
 > [!IMPORTANT]
-> Notice how some parameters are exposed as user input (eg.: unit width, material thickness) while others are built into Parametric Templates as constants (eg.: door margin: 2mm, groove depth: half of the material thickness). When designing own Parametric Templates, makers are free to decide what variables they want to expose for user entry and what they preffer to setting as constants. It is all about the balance between elegance and clutter, or rather, between being concise and verbose. These are the choices deliberated during the design process of a Parametric Template and may be unique to a maker reflecting their signature style.
+> Notice how some parameters are exposed as user input (eg.: unit width, material thickness) while others are built into Parametric Templates as constants (eg.: door margin: 2mm, groove depth: half of the material thickness). When designing own Parametric Templates, makers are free to decide what variables they want to expose for user entry and what they prefer to setting as constants. It is all about the balance between elegance and clutter, or rather, between being concise and verbose. These are the choices deliberated during the design process of a Parametric Template and may be unique to a maker reflecting their signature style.
 
 
 ### Example Kitchen Assembly
 
-This example contains handfull of cabinets and voids for a boiler, an extractor and a cooker. Copy/paste this example to your sheet and click "Assemble".
+This example contains handful of cabinets and voids for a boiler, an extractor and a cooker. Copy/paste this example to your sheet and click "Assemble".
 
 ```
 void	600
@@ -146,7 +146,7 @@ cubinet drawer	400	700	600	18	140	100	10	20
 > [!NOTE]
 > Parametric Template document is a regular FreeCAD design document. NO added complexity. To create your own Parametric Template: open FreeCAD and create new document. That's it, you are set!
 
-In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standart. This standart is aimed to be optimal practicaly and intuitive for a human person.
+In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standard. This standard is aimed to be optimal practically and intuitive for a human person.
 
 📌 **Parametric Template document must contain a spreadsheet named "params"**. This is short for parameters. The reason it is shortened is that this name will be used in formulas and it is a good idea too keep the formulas as short as possible. Params Spreadsheet is where parameters of the Prametric Template will live. FreeCAD has a Spreadsheet workbench, with tools available to create and manipulate spreadsheets. However, Cubinets only require a basic spreadsheet manipulation and it is recommended to use a shortcuts provided by Cubinets Workbench:
  - Toolbar button: "New Sheet"; or
@@ -189,8 +189,8 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 
 
 ## 🔄 Upcoming (v1.0)
-- 🔄 Complete code rewrite: spagetti to a readable, scaleable and extendible code
-- 🔄 UX/UI Improvments - Settings Dialog, Parameter Hints, ...
+- 🔄 Complete code rewrite: spaghetti to a readable, scaleable and extendible code
+- 🔄 UX/UI Improvements - Settings Dialogue, Parameter Hints, ...
 - 🔄 New App Features
 - 🔄 New Template Features - count objects, eg.: shelves
 - 🔄 New Templates
@@ -204,8 +204,8 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 # ❤️ Donate
 
 ## 🌱 Help this project grow
- - ☕ If you like this sofware, buy me a coffee.
- - 🧩 If you find it usefull in your professional activities, consider donating a larger sum. 
+ - ☕ If you like this software, buy me a coffee.
+ - 🧩 If you find it useful in your professional activities, consider donating a larger sum. 
 
 **donate button**
 
