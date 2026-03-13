@@ -13,32 +13,32 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-from FreeCAD import Spreadsheet
+from typing import TYPE_CHECKING
 
-class cmdNewParams:
+if TYPE_CHECKING:
 
-    def GetResources(self):
+    from Spreadsheet import Spreadsheet
 
-        return {
-            "MenuText": "New Sheet",
-            "ToolTip": "Create a new parameter spreadsheet."
-        }
+class Cell:
 
-
-    def Activated(self):
-
-        doc = App.ActiveDocument
-        spreadsheet = doc.addObject("Spreadsheet::Sheet", "args")
-        doc.recompute()
-        Gui.Selection.addSelection(spreadsheet)
-        Gui.ActiveDocument.setEdit(spreadsheet)
+    def __init__(self, sheet: 'Spreadsheet', address: str):
+        
+        self._sheet = sheet
+        self._address = address
 
 
-    def IsActive(self):
+    def value(self, default = None):
 
-        return App.ActiveDocument is not None
+        try:
 
+            value = self._sheet._fc_sheet.get(self._address)
 
-Gui.addCommand("cmdNewParams", cmdNewParams())
+        except (RuntimeError, ValueError):
+
+            return default
+
+        if value in (None, ''):
+
+            return default
+
+        return value

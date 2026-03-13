@@ -19,11 +19,13 @@ import FreeCADGui as Gui
 #__folder__ = os.path.dirname(__file__)
 
 class CubinetsWorkbench(Gui.Workbench):
+
     MenuText = "Cubinets"
     ToolTip = "Visualise cabinet assemblies using Parametric Templates"
     #Icon = os.path.join(__folder__, "resources", "cubinets_icon.png")
 
     def Initialize(self):
+
         import cmdNewParams, cmdAssemble, cmdCutList
 
         # hiding settings for demo; settings must be reviewed
@@ -31,13 +33,20 @@ class CubinetsWorkbench(Gui.Workbench):
         self.appendToolbar("Cubinets", self.list) # creates a new toolbar with your commands
         self.appendMenu("Cubinets", self.list) # creates a new menu
 
+
     def Activated(self):
+
         pass
+
 
     def Deactivated(self):
+
         pass
 
+
     def GetClassName(self):
+        
         return "Gui::PythonWorkbench"
+
 
 Gui.addWorkbench(CubinetsWorkbench())

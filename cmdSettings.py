@@ -14,14 +14,11 @@
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import FreeCADGui as Gui
-#from PySide2 import QtWidgets
-#from PySide6 import QtWidgets
 from SettingsDialog import SettingsDialog
 
 class cmdSettings:
     def GetResources(self):
         return {
-            "Pixmap": "",
             "MenuText": "Settings",
             "ToolTip": "Cabinet Workbench settings"
         }

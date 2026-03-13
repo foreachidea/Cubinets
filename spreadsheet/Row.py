@@ -13,32 +13,37 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-from FreeCAD import Spreadsheet
+from .Address import Address
+from typing import TYPE_CHECKING
 
-class cmdNewParams:
+if TYPE_CHECKING:
 
-    def GetResources(self):
-
-        return {
-            "MenuText": "New Sheet",
-            "ToolTip": "Create a new parameter spreadsheet."
-        }
+    from Spreadsheet import Spreadsheet
 
 
-    def Activated(self):
+class Row:
 
-        doc = App.ActiveDocument
-        spreadsheet = doc.addObject("Spreadsheet::Sheet", "args")
-        doc.recompute()
-        Gui.Selection.addSelection(spreadsheet)
-        Gui.ActiveDocument.setEdit(spreadsheet)
+    def __init__(self, sheet: 'Spreadsheet', index: int):
 
-
-    def IsActive(self):
-
-        return App.ActiveDocument is not None
+        self._sheet = sheet
+        self._index = index
 
 
-Gui.addCommand("cmdNewParams", cmdNewParams())
+    def __iter__(self):
+
+        yield from self.values()
+
+
+    def values(self):
+
+        values = []
+        columnCount = self._sheet.columnCount()
+
+        for i in range(1, columnCount + 1):
+
+            label = Address.indexToLabel(i)
+            address = f"{label}{self._index}"
+            value = self._sheet.cell(address).value()
+            values.append(value)
+        
+        return values
