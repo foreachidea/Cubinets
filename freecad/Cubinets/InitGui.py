@@ -14,18 +14,17 @@
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
+import FreeCAD as App
 import FreeCADGui as Gui
-
-#__folder__ = os.path.dirname(__file__)
 
 class CubinetsWorkbench(Gui.Workbench):
 
     MenuText = "Cubinets"
     ToolTip = "Visualise cabinet assemblies using Parametric Templates"
-    #Icon = os.path.join(__folder__, "resources", "cubinets_icon.png")
+    Icon = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', "resources", "cubinets_icon.svg")
 
     def Initialize(self):
-
+        
         import cmdNewParams, cmdAssemble, cmdCutList
 
         # hiding settings for demo; settings must be reviewed
