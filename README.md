@@ -218,4 +218,3 @@ This project is licensed under the **GPL-3.0 License**, see [LICENSE](./LICENSE.
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue)](https://www.python.org/)
 [![PySide2](https://img.shields.io/badge/PySide2-5.15%2B-green)](https://wiki.qt.io/PySide2)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![LGPL Dependencies](https://img.shields.io/badge/Dependencies-LGPL--3.0-orange)](./LICENSES/LGPL-3.0.txt)
