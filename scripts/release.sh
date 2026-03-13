@@ -119,7 +119,7 @@ set -euo pipefail
 ############################################
 
 # Commit types that are included in changelog
-INCLUDE_TYPES="add|dep|fix|rem|sec|upd"
+INCLUDE_TYPES="add|cle|dep|fix|rem|upd|sec"
 
 # Commit types excluded from changelog
 EXCLUDED_TYPES="hid|tes"

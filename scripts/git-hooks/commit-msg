@@ -33,7 +33,7 @@ if ! [[ "$FIRST_LINE" =~ $REGEX ]]; then
   echo "❌ Invalid commit message format."
   echo ""
   echo "Must start with:"
-  echo "  add: upd: dep: rem: fix: sec: tes: cle:"
+  echo "  add: cle: upd: dep: rem: fix: sec: tes: cle:"
   echo ""
   echo "May contain exclamation mark to indicate breaking change, eg.:"
   echo "  add!: etc."
