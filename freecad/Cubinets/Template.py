@@ -1,10 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
+from FreeCAD import ParamGet , activeDocument
 import os
+
 from .Misc import Paths
 from .File import File
+
 
 class Template:
 
@@ -28,7 +30,9 @@ class Template:
 
         params = self.findSheet()
 
-        App.ActiveDocument.openTransaction("Write parameters") # prevent recomputing
+        document = activeDocument()
+
+        document.openTransaction("Write parameters") # prevent recomputing
 
         for i, arg in enumerate(args):
 
@@ -36,7 +40,7 @@ class Template:
 
                 params.set(f"B{i+1}", str(arg))
 
-        App.ActiveDocument.commitTransaction()
+        document.commitTransaction()
 
 
     def recompute(self):
@@ -81,7 +85,7 @@ class Template:
     def getPath(self, name):
 
         # todo: why dont these work bellow class?
-        TEMPLATE_DIR = App.ParamGet("User parameter:BaseApp/Mod/Cubinets") \
+        TEMPLATE_DIR = ParamGet("User parameter:BaseApp/Mod/Cubinets") \
             .GetString("TemplateFolder",Paths['Templates'])
 
         path = os.path.join(TEMPLATE_DIR, f"{name}.FCStd")

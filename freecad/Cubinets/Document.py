@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
+from FreeCAD import Placement , Vector , Console
+
 from .Template import Template
 from .Freezer import Freezer
 from .UI import UI
@@ -25,7 +26,7 @@ class Document:
 
         if rowCount == 0:
 
-                App.Console.PrintMessage("[ ]]] Cubinets: argument sheet has no instructions.\n")
+                Console.PrintMessage("[ ]]] Cubinets: argument sheet has no instructions.\n")
                 return
 
         with Freezer(profile = "geometry", steps = rowCount + 1, cancel=False) as guiFreezer:
@@ -66,7 +67,7 @@ class Document:
                                 try:
                                     width = float(width)
                                 except Exception as e:
-                                    App.Console.PrintError(f"[ ] Cubinets: Invalid numeric value in B1: \"{width}\"; Unit width expected. \n")
+                                    Console.PrintError(f"[ ] Cubinets: Invalid numeric value in B1: \"{width}\"; Unit width expected. \n")
                                     raise
 
                         self.__x += width
@@ -81,7 +82,7 @@ class Document:
 
                 guiFreezer.update(self.__unitCount, f"Creating unit {self.__unitCount}")
 
-        App.Console.PrintMessage("[ ]]] Cubinets: assembly complete!\n")
+        Console.PrintMessage("[ ]]] Cubinets: assembly complete!\n")
 
         UI.setActiveDocument(self._fc_doc.Name)
         UI.focusInventorTab(self._fc_doc.Name)
@@ -97,14 +98,14 @@ class Document:
 
             baked = self._fc_doc.addObject("Part::Box")
             
-            shape.Placement = App.Placement()
+            shape.Placement = Placement()
 
             bbox = shape.BoundBox
             baked.Length = bbox.XLength
             baked.Width  = bbox.YLength
             baked.Height = bbox.ZLength
-            baked.Placement = App.Placement(
-                placement.Base + App.Vector(self.__x, self.__y, self.__z),
+            baked.Placement = Placement(
+                placement.Base + Vector(self.__x, self.__y, self.__z),
                 placement.Rotation
             )
             baked.Label = f"{self.__unitCount:02d}_{label}"

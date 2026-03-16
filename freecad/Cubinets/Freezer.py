@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-
-from PySide import QtGui, QtCore
+from FreeCAD import Console , Gui , activeDocument
+from PySide import QtCore , QtGui
 
 
 class Freezer:
@@ -103,7 +101,7 @@ class Freezer:
         self.custom = custom or {}
         self.debug = debug
 
-        self.doc = App.ActiveDocument
+        self.doc = activeDocument()
         self.view = Gui.ActiveDocument.ActiveView if Gui.ActiveDocument else None
         self.mw = Gui.getMainWindow()
 
@@ -158,7 +156,7 @@ class Freezer:
         Freezer._depth += 1
 
         if self.debug:
-            App.Console.PrintMessage(f"[Freezer] Enter '{self.profile}' depth={Freezer._depth}\n")
+            Console.PrintMessage(f"[Freezer] Enter '{self.profile}' depth={Freezer._depth}\n")
 
         # If nested, do nothing except allow status updates
         if Freezer._depth > 1:
@@ -169,7 +167,7 @@ class Freezer:
         try:
             self._apply_freeze()
         except Exception as e:
-            App.Console.PrintError(f"[Freezer] Freeze error: {e}\n")
+            Console.PrintError(f"[Freezer] Freeze error: {e}\n")
 
         return self
 
@@ -180,7 +178,7 @@ class Freezer:
         Freezer._depth -= 1
 
         if self.debug:
-            App.Console.PrintMessage(
+            Console.PrintMessage(
                 f"[Freezer] Exit '{self.profile}' depth={Freezer._depth}\n"
             )
 
@@ -189,7 +187,7 @@ class Freezer:
             try:
                 self._restore()
             except Exception as e:
-                App.Console.PrintError(f"[Freezer] Restore error: {e}\n")
+                Console.PrintError(f"[Freezer] Restore error: {e}\n")
 
             Freezer._active_instance = None
 

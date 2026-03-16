@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCADGui as Gui
+from FreeCAD import Gui
+
 from ..SettingsDialog import SettingsDialog
+
 
 class cmdSettings:
     def GetResources(self):

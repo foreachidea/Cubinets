@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-from .spreadsheet.Row import Row
-from .spreadsheet.Column import Column
-from .spreadsheet.Cell import Cell
-from .spreadsheet.Address import Address
+from .spreadsheet import Address , Column , Cell , Row
+
 
 class Spreadsheet:
 

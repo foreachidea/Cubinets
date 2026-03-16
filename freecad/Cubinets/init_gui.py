@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-import os
-import FreeCAD as App
-import FreeCADGui as Gui
+from FreeCAD import Gui
 
 from .Commands import cmdNewParams , cmdAssemble , cmdSettings , cmdCutList
 from .Misc import asIcon
@@ -24,7 +22,7 @@ class CubinetsWorkbench(Gui.Workbench):
     def Initialize(self):
 
         # hiding settings for demo; settings must be reviewed
-        self.list = ["cmdNewParams", "cmdAssemble", "cmdCutList"]
+        self.list = ['cmdSettings',"cmdNewParams", "cmdAssemble", "cmdCutList"]
         self.appendToolbar("Cubinets", self.list) # creates a new toolbar with your commands
         self.appendMenu("Cubinets", self.list) # creates a new menu
 
