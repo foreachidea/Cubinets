@@ -85,7 +85,7 @@ class Template:
     def getPath(self, name):
 
         # todo: why dont these work bellow class?
-        TEMPLATE_DIR = ParamGet("User parameter:BaseApp/Mod/Cubinets") \
+        TEMPLATE_DIR = ParamGet("User parameter:BaseApp/Preferences/Mod/Cubinets") \
             .GetString("TemplateFolder",Paths['Templates'])
 
         path = os.path.join(TEMPLATE_DIR, f"{name}.FCStd")

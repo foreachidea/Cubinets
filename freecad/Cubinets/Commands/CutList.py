@@ -87,7 +87,7 @@ class cmdCutList:
             #"yz": (2, 0, 1),
         }
         
-        params = ParamGet("User parameter:BaseApp/Mod/Cubinets")
+        params = ParamGet("User parameter:BaseApp/Preferences/Mod/Cubinets")
         plane = params.GetString("WorkingPlane", "xy")
         i_w, i_h, i_d = AXIS_MAP[plane]
         sort = params.GetBool("CutlistSortByDimension", False)

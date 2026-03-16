@@ -5,7 +5,7 @@ import FreeCAD as App
 from PySide import QtWidgets
 from .Misc import Paths
 
-PARAM_PATH = "User parameter:BaseApp/Mod/Cubinets"
+PARAM_PATH = "User parameter:BaseApp/Preferences/Mod/Cubinets"
 
 class SettingsDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
