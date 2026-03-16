@@ -93,7 +93,7 @@ class Template:
     def getPath(self, name):
 
         # todo: why dont these work bellow class?
-        DEFAULT_TEMPLATE_DIR = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'templates')
+        DEFAULT_TEMPLATE_DIR = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'freecad', 'Cubinets', 'templates')
         TEMPLATE_DIR = App.ParamGet("User parameter:BaseApp/Mod/Cubinets").GetString("TemplateFolder", DEFAULT_TEMPLATE_DIR)
 
         path = os.path.join(TEMPLATE_DIR, f"{name}.FCStd")

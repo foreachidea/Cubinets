@@ -21,7 +21,7 @@ class CubinetsWorkbench(Gui.Workbench):
 
     MenuText = "Cubinets"
     ToolTip = "Visualise cabinet assemblies using Parametric Templates"
-    Icon = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', "resources", "cubinets_icon.svg")
+    Icon = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'freecad', 'Cubinets', "resources", "cubinets_icon.svg")
 
     def Initialize(self):
         

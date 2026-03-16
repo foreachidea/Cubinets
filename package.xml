@@ -60,7 +60,7 @@
 
     <!--[ Icon ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <icon>./resources/cubinets_icon.svg</icon>
+    <icon>freecad/Cubinets/resources/cubinets_icon.svg</icon>
 
     <!--[ Urls ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -79,7 +79,12 @@
     <!--[ Content ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <content>
-        <other/>
+        <workbench>
+          <name>Cubinets Workbench</name>
+          <icon>resources/cubinets_icon.svg</icon>
+          <subdirectory>freecad/Cubinets</subdirectory>
+          <classname>CubinetsWorkbench</classname>
+        </workbench>
     </content>
 
 </package>
