@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-**/__pycache__/
+__pycache__
 /ignore
-freecad/Cubinets/templates/**/*.FCBak
+*.FCBak
