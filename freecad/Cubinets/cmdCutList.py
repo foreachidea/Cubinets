@@ -3,7 +3,6 @@
 
 import FreeCAD as App
 import FreeCADGui as Gui
-import os
 from collections import defaultdict
 
 class cmdCutList:

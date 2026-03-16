@@ -2,11 +2,9 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 import FreeCAD as App
-from Spreadsheet import Spreadsheet
-from Template import Template
-from spreadsheet import Row
-from Freezer import Freezer
-from UI import UI
+from .Template import Template
+from .Freezer import Freezer
+from .UI import UI
 
 class Document:
 

@@ -3,8 +3,7 @@
 
 import FreeCAD as App
 import os
-import shutil
-from File import File
+from .File import File
 
 class Template:
 

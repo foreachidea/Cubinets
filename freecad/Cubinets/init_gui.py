@@ -13,7 +13,9 @@ class CubinetsWorkbench(Gui.Workbench):
 
     def Initialize(self):
         
-        import cmdNewParams, cmdAssemble, cmdCutList
+        import freecad.Cubinets.cmdNewParams
+        import freecad.Cubinets.cmdAssemble
+        import freecad.Cubinets.cmdCutList
 
         # hiding settings for demo; settings must be reviewed
         self.list = ["cmdNewParams", "cmdAssemble", "cmdCutList"]

@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
 
-    from Spreadsheet import Spreadsheet
+    from .Spreadsheet import Spreadsheet
 
 
 class Row:

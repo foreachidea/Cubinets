@@ -3,7 +3,6 @@
 
 import FreeCAD as App
 import FreeCADGui as Gui
-from FreeCAD import Spreadsheet
 
 class cmdNewParams:
 

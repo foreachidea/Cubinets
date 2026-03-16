@@ -3,14 +3,8 @@
 
 import FreeCAD as App
 import FreeCADGui as Gui
-import os
-import random
-from collections import defaultdict
-from Freezer import Freezer
-from PySide import QtCore
-import shutil
-from Document import Document
-from Spreadsheet import Spreadsheet
+from .Document import Document
+from .Spreadsheet import Spreadsheet
 
 class cmdAssemble:
 
