@@ -6,6 +6,7 @@ import FreeCAD as App
 import FreeCADGui as Gui
 
 from .Commands import cmdNewParams , cmdAssemble , cmdSettings , cmdCutList
+from .Misc import asIcon
 
 
 Gui.addCommand('cmdNewParams',cmdNewParams())
@@ -18,7 +19,7 @@ class CubinetsWorkbench(Gui.Workbench):
 
     MenuText = "Cubinets"
     ToolTip = "Visualise cabinet assemblies using Parametric Templates"
-    Icon = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'freecad', 'Cubinets', "resources", "cubinets_icon.svg")
+    Icon = asIcon('Addon')
 
     def Initialize(self):
 
