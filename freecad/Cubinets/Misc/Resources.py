@@ -7,7 +7,13 @@ from importlib.resources import as_file , files
 
 resources = files(module) / 'Resources'
 
+templates = resources / 'Templates'
 icons = resources / 'Icons'
+
+
+Paths = {
+    'Templates' : str( templates )
+}
 
 
 def asIcon ( name : str ):

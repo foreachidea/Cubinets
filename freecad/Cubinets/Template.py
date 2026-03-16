@@ -3,6 +3,7 @@
 
 import FreeCAD as App
 import os
+from .Misc import Paths
 from .File import File
 
 class Template:
@@ -80,8 +81,8 @@ class Template:
     def getPath(self, name):
 
         # todo: why dont these work bellow class?
-        DEFAULT_TEMPLATE_DIR = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'freecad', 'Cubinets', 'templates')
-        TEMPLATE_DIR = App.ParamGet("User parameter:BaseApp/Mod/Cubinets").GetString("TemplateFolder", DEFAULT_TEMPLATE_DIR)
+        TEMPLATE_DIR = App.ParamGet("User parameter:BaseApp/Mod/Cubinets") \
+            .GetString("TemplateFolder",Paths['Templates'])
 
         path = os.path.join(TEMPLATE_DIR, f"{name}.FCStd")
 
