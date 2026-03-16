@@ -4,7 +4,7 @@
     standalone = 'no'
 ?>
 <!-- SPDX-License-Identifier: GPL-3.0-or-later -->
-<!-- SPDX-FileNotice: Part of the Cubinets addon for FreeCAD. -->
+<!-- SPDX-FileNotice: Part of the Cubinets addon. -->
 <package
     format = '1'
     xmlns = 'https://wiki.freecad.org/Package_Metadata'

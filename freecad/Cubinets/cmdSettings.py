@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
 import FreeCADGui as Gui
 from SettingsDialog import SettingsDialog
