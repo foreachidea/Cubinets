@@ -56,7 +56,7 @@
 
     <license
         file = 'LICENSE'
-    >GPL-3.0</license>
+    >GPL-3.0-or-later</license>
 
     <!--[ Icon ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
