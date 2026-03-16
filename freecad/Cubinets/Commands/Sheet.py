@@ -26,6 +26,3 @@ class cmdNewParams:
     def IsActive(self):
 
         return App.ActiveDocument is not None
-
-
-Gui.addCommand("cmdNewParams", cmdNewParams())

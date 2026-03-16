@@ -150,5 +150,3 @@ class cmdCutList:
 
     def IsActive(self):
         return App.ActiveDocument is not None
-
-Gui.addCommand("cmdCutList", cmdCutList())

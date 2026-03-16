@@ -2,9 +2,8 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 import FreeCAD as App
-import FreeCADGui as Gui
-from .Document import Document
-from .Spreadsheet import Spreadsheet
+from ..Document import Document
+from ..Spreadsheet import Spreadsheet
 
 class cmdAssemble:
 
@@ -49,5 +48,3 @@ class cmdAssemble:
     def IsActive(self):
 
         return App.ActiveDocument is not None
-
-Gui.addCommand("cmdAssemble", cmdAssemble())

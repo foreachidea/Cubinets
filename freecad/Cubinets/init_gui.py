@@ -5,6 +5,15 @@ import os
 import FreeCAD as App
 import FreeCADGui as Gui
 
+from .Commands import cmdNewParams , cmdAssemble , cmdSettings , cmdCutList
+
+
+Gui.addCommand('cmdNewParams',cmdNewParams())
+Gui.addCommand('cmdAssemble',cmdAssemble())
+Gui.addCommand('cmdSettings',cmdSettings())
+Gui.addCommand('cmdCutList',cmdCutList())
+
+
 class CubinetsWorkbench(Gui.Workbench):
 
     MenuText = "Cubinets"
@@ -12,10 +21,6 @@ class CubinetsWorkbench(Gui.Workbench):
     Icon = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'freecad', 'Cubinets', "resources", "cubinets_icon.svg")
 
     def Initialize(self):
-        
-        import freecad.Cubinets.cmdNewParams
-        import freecad.Cubinets.cmdAssemble
-        import freecad.Cubinets.cmdCutList
 
         # hiding settings for demo; settings must be reviewed
         self.list = ["cmdNewParams", "cmdAssemble", "cmdCutList"]

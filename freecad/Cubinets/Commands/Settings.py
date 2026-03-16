@@ -2,7 +2,7 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 import FreeCADGui as Gui
-from .SettingsDialog import SettingsDialog
+from ..SettingsDialog import SettingsDialog
 
 class cmdSettings:
     def GetResources(self):
@@ -18,4 +18,3 @@ class cmdSettings:
         dlg = SettingsDialog(Gui.getMainWindow())
         dlg.exec_()
 
-Gui.addCommand("cmdSettings", cmdSettings())
