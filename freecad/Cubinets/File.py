@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
+from FreeCAD import closeDocument , listDocuments , openDocument , getTempPath
+from random import randbytes
+from shutil import copy
 import os
-import shutil
 
 class File:
 
@@ -18,24 +19,24 @@ class File:
         if self.isOpen():
             
             # clone template file if it's opened by user  
-            self._path = self.clone(self._path)
+            self._path = self.clone()
             self._isClone = True
 
-        doc = App.openDocument(self._path, hidden=True)
+        doc = openDocument(self._path, hidden=True)
 
         return doc
 
 
     def close(self, doc):
 
-        App.closeDocument(doc.Name)
+        closeDocument(doc.Name)
 
     
     def destroy(self):
 
         if self._isClone and self._path is not None and os.path.exists(self._path):
 
-            os.remove(path)
+            os.remove(self._path)
 
 
     def isOpen(self):
@@ -45,7 +46,7 @@ class File:
         path = os.path.normpath(path)
         path = os.path.normcase(path)
 
-        for openedTemplate in App.listDocuments().values():
+        for openedTemplate in listDocuments().values():
 
             if not openedTemplate.FileName:
 
@@ -64,7 +65,7 @@ class File:
 
     def randomHex(self, bytes = 8):
 
-        byteString = random.randbytes(bytes)
+        byteString = randbytes(bytes)
         randomHex = byteString.hex()
 
         return randomHex
@@ -72,11 +73,11 @@ class File:
 
     def clone(self):
 
-        randPrefix = randomHex()
-        dest = App.getTempPath() + f"{randPrefix}_" + os.path.basename(self._path)
+        randPrefix = self.randomHex()
+        dest = getTempPath() + f"{randPrefix}_" + os.path.basename(self._path)
         dest = os.path.normpath(dest)
         dest = os.path.normcase(dest)
                     
-        shutil.copy(path, dest, follow_symlinks=True)
+        copy(self._path, dest, follow_symlinks=True)
 
         return dest

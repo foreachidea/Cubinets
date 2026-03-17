@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
 import FreeCAD as App
-from PySide2 import QtWidgets
-import os
+from .Misc import Paths
+from .Qt import QtWidgets
 
-PARAM_PATH = "User parameter:BaseApp/Mod/Cubinets"
+PARAM_PATH = "User parameter:BaseApp/Preferences/Mod/Cubinets"
 
 class SettingsDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -21,7 +21,7 @@ class SettingsDialog(QtWidgets.QDialog):
         folder_layout = QtWidgets.QHBoxLayout()
 
         self.folder_edit = QtWidgets.QLineEdit()
-        self.folder_edit.setText(self.params.GetString("TemplateFolder", os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'templates')))
+        self.folder_edit.setText(self.params.GetString("TemplateFolder",Paths['Templates']))
 
         browse_btn = QtWidgets.QPushButton("Browse…")
         # todo: check browse folder
@@ -81,7 +81,7 @@ class SettingsDialog(QtWidgets.QDialog):
 
         # -------- Buttons --------
         buttons = QtWidgets.QDialogButtonBox(
-            QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel
+            QtWidgets.QDialogButtonBox.StandardButton.Ok | QtWidgets.QDialogButtonBox.StandardButton.Cancel
         )
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)

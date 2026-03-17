@@ -1,10 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
+from FreeCAD import ParamGet , activeDocument
 import os
-import shutil
-from File import File
+
+from .Misc import Paths
+from .File import File
+
 
 class Template:
 
@@ -28,7 +30,9 @@ class Template:
 
         params = self.findSheet()
 
-        App.ActiveDocument.openTransaction("Write parameters") # prevent recomputing
+        document = activeDocument()
+
+        document.openTransaction("Write parameters") # prevent recomputing
 
         for i, arg in enumerate(args):
 
@@ -36,10 +40,13 @@ class Template:
 
                 params.set(f"B{i+1}", str(arg))
 
-        App.ActiveDocument.commitTransaction()
+        document.commitTransaction()
 
 
     def recompute(self):
+
+        if not self._doc :
+            return
 
         # Force all objects to recompute
         self._doc.recompute()
@@ -81,8 +88,8 @@ class Template:
     def getPath(self, name):
 
         # todo: why dont these work bellow class?
-        DEFAULT_TEMPLATE_DIR = os.path.join(App.getUserAppDataDir(), 'Mod', 'Cubinets', 'freecad', 'Cubinets', 'templates')
-        TEMPLATE_DIR = App.ParamGet("User parameter:BaseApp/Mod/Cubinets").GetString("TemplateFolder", DEFAULT_TEMPLATE_DIR)
+        TEMPLATE_DIR = ParamGet("User parameter:BaseApp/Preferences/Mod/Cubinets") \
+            .GetString("TemplateFolder",Paths['Templates'])
 
         path = os.path.join(TEMPLATE_DIR, f"{name}.FCStd")
 
@@ -90,6 +97,9 @@ class Template:
 
 
     def findSolid(self):
+
+        if not self._doc :
+            return
 
         for obj in self._doc.Objects:
 
@@ -101,6 +111,9 @@ class Template:
 
 
     def findSheet(self):
+
+        if not self._doc :
+            return
 
         for obj in self._doc.Objects:
 
@@ -114,6 +127,9 @@ class Template:
     # todo: fix this mess;
     # todo: extractor should really extract Std_Body containing Part::Box and Part::FeaturePython, so user could manipulate further
     def extractVisibleCubes(self):
+
+        if not self._doc :
+            return
 
         def is_visible(obj):
             try:

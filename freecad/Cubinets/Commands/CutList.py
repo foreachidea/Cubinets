@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-import os
 from collections import defaultdict
+from FreeCAD import Placement , ParamGet , Gui , activeDocument
 
 class cmdCutList:
 
@@ -15,7 +13,7 @@ class cmdCutList:
         }
 
     def Activated(self):
-        DOC = App.ActiveDocument
+        DOC = activeDocument()
 
         # --- Step 1: Create or get Spreadsheet ---
         '''
@@ -89,7 +87,7 @@ class cmdCutList:
             #"yz": (2, 0, 1),
         }
         
-        params = App.ParamGet("User parameter:BaseApp/Mod/Cubinets")
+        params = ParamGet("User parameter:BaseApp/Preferences/Mod/Cubinets")
         plane = params.GetString("WorkingPlane", "xy")
         i_w, i_h, i_d = AXIS_MAP[plane]
         sort = params.GetBool("CutlistSortByDimension", False)
@@ -106,7 +104,7 @@ class cmdCutList:
                 continue
 
             ogPlacement = obj.Placement
-            obj.Placement = App.Placement()
+            obj.Placement = Placement()
 
             # Bounding box dimensions
             bb = obj.Shape.BoundBox
@@ -150,6 +148,4 @@ class cmdCutList:
 
 
     def IsActive(self):
-        return App.ActiveDocument is not None
-
-Gui.addCommand("cmdCutList", cmdCutList())
+        return not not activeDocument()

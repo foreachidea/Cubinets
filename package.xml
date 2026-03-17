@@ -1,17 +1,19 @@
 <?xml
-    version="1.0"
-    encoding="UTF-8"
+    version = '1.0'
+    encoding = 'UTF-8'
+    standalone = 'no'
 ?>
-
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- SPDX-FileNotice: Part of the Cubinets addon. -->
 <package
-    format="1"
-    xmlns="https://wiki.freecad.org/Package_Metadata"
+    format = '1'
+    xmlns = 'https://wiki.freecad.org/Package_Metadata'
 >
 
     <!--[ Versions ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <freecadmin>1.0.2</freecadmin>
-    <pythonmin>3.9</pythonmin>
+    <pythonmin>3.10</pythonmin>
     <version>0.1.0-demo</version>
     <date>2026-03-03</date>
 
@@ -31,58 +33,57 @@
 
     <!--[ Info ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
+    <description>Visualize cabinet assemblies using parametric templates and generate cut lists.</description>
     <name>Cubinets</name>
-    <description>Visualise Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.</description>
     
     <!--[ Tags ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <tag>cubinets</tag>
-    <tag>cabinet</tag>
-    <tag>cabinets</tag>
+    <tag>Spreadsheet</tag>
+    <tag>Cabinet</tag>
+    <tag>Part</tag>
 
     <!--[ Maintainers ]――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
           
     <maintainer
-        email="v.rimkevicius@gmail.com"
+        email = 'v.rimkevicius@gmail.com'
     >Vytautas Rimkevicius</maintainer>
 
     <!--[ Authors ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <author
-        email="v.rimkevicius@gmail.com"
+        email = 'v.rimkevicius@gmail.com'
     >Vytautas Rimkevicius</author>
 
     <!--[ Licenses ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <license
-        file = 'LICENSE.txt'
-    >GPL-3.0</license>
+        file = 'LICENSE'
+    >GPL-3.0-or-later</license>
 
     <!--[ Icon ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <icon>freecad/Cubinets/resources/cubinets_icon.svg</icon>
+    <icon>freecad/Cubinets/Resources/Icons/Addon.svg</icon>
 
     <!--[ Urls ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <url
-        type="repository"
+        branch = 'main'
+        type = 'repository'
     >https://github.com/foreachidea/Cubinets</url>
 
     <url
-        type="readme"
-    >https://github.com/foreachidea/Cubinets/blob/main/README.md</url>
+        type = 'readme'
+    >https://raw.githubusercontent.com/foreachidea/Cubinets/refs/heads/main/README.md</url>
 
     <url
-        type="bugtracker"
+        type = 'bugtracker'
     >https://github.com/foreachidea/Cubinets/issues</url>
 
     <!--[ Content ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <content>
         <workbench>
-          <name>Cubinets Workbench</name>
-          <icon>resources/cubinets_icon.svg</icon>
-          <subdirectory>freecad/Cubinets</subdirectory>
+          <subdirectory>.</subdirectory>
           <classname>CubinetsWorkbench</classname>
         </workbench>
     </content>

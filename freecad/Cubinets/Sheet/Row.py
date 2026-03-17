@@ -1,17 +1,16 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
 from .Address import Address
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-
-    from Spreadsheet import Spreadsheet
+from .Type import Sheet
 
 
 class Row:
 
-    def __init__(self, sheet: 'Spreadsheet', index: int):
+    _sheet : Sheet
+    _index : int
+
+    def __init__(self, sheet: Sheet, index: int):
 
         self._sheet = sheet
         self._index = index

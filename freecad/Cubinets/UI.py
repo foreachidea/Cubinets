@@ -1,17 +1,16 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-from PySide import QtCore
+from FreeCAD import Base , Gui , setActiveDocument
+from .Qt import QtWidgets , QtCore
 
 class UI:
 
     @staticmethod
     def setActiveDocument(name):
 
-        App.setActiveDocument(name)
-        App.ActiveDocument = App.getDocument(name)
+        setActiveDocument(name)
+        # App.ActiveDocument = App.getDocument(name)
 
         Gui.setActiveDocument(name)
         Gui.ActiveDocument = Gui.getDocument(name)
@@ -33,7 +32,7 @@ class UI:
 
         # Get MDI area
         mw = Gui.getMainWindow()
-        mdi = mw.centralWidget()
+        mdi : QtWidgets.QMdiArea = mw.centralWidget()
 
         # Look for the subwindow containing this view
         for sub in mdi.subWindowList():
@@ -79,8 +78,9 @@ class UI:
     @staticmethod
     def setViewingAngleAntFitAll():
 
-        view = Gui.ActiveDocument.ActiveView
-        r = App.Base.Rotation(App.Base.Vector(0,1,0), 45) * App.Base.Rotation(App.Base.Vector(1,0,0), -35)
+        view = Gui.activeView()
+
+        r = Base.Rotation(Base.Vector(0,1,0), 45) * Base.Rotation(Base.Vector(1,0,0), -35)
 
         view.viewIsometric()  # optional, to start from default iso
         view.setCameraType("Perspective")

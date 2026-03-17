@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-
-from PySide import QtGui, QtCore
+from FreeCAD import Console , Gui , activeDocument
+from .Qt import QtWidgets , QtCore
 
 
 class Freezer:
@@ -103,7 +101,7 @@ class Freezer:
         self.custom = custom or {}
         self.debug = debug
 
-        self.doc = App.ActiveDocument
+        self.doc = activeDocument()
         self.view = Gui.ActiveDocument.ActiveView if Gui.ActiveDocument else None
         self.mw = Gui.getMainWindow()
 
@@ -158,7 +156,7 @@ class Freezer:
         Freezer._depth += 1
 
         if self.debug:
-            App.Console.PrintMessage(f"[Freezer] Enter '{self.profile}' depth={Freezer._depth}\n")
+            Console.PrintMessage(f"[Freezer] Enter '{self.profile}' depth={Freezer._depth}\n")
 
         # If nested, do nothing except allow status updates
         if Freezer._depth > 1:
@@ -169,7 +167,7 @@ class Freezer:
         try:
             self._apply_freeze()
         except Exception as e:
-            App.Console.PrintError(f"[Freezer] Freeze error: {e}\n")
+            Console.PrintError(f"[Freezer] Freeze error: {e}\n")
 
         return self
 
@@ -180,7 +178,7 @@ class Freezer:
         Freezer._depth -= 1
 
         if self.debug:
-            App.Console.PrintMessage(
+            Console.PrintMessage(
                 f"[Freezer] Exit '{self.profile}' depth={Freezer._depth}\n"
             )
 
@@ -189,7 +187,7 @@ class Freezer:
             try:
                 self._restore()
             except Exception as e:
-                App.Console.PrintError(f"[Freezer] Restore error: {e}\n")
+                Console.PrintError(f"[Freezer] Restore error: {e}\n")
 
             Freezer._active_instance = None
 
@@ -203,22 +201,22 @@ class Freezer:
 
         # Busy cursor
         if self.config["cursor"]:
-            QtGui.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.CursorShape.WaitCursor)
             self._cursor_set = True
 
         # Modal progress dialog (UI lock)
         if self.config["modal"]:
             maximum = self.steps if self.steps is not None else 0
 
-            self._progress = QtGui.QProgressDialog(
+            self._progress = QtWidgets.QProgressDialog(
                 "Processing...",
-                "Cancel" if self.cancel else None,
+                "Cancel" if self.cancel else '',
                 0,
                 maximum,
                 self.mw
             )
 
-            self._progress.setWindowModality(QtCore.Qt.WindowModal)
+            self._progress.setWindowModality(QtCore.Qt.WindowModality.WindowModal)
             self._progress.setMinimumDuration(0)
             self._progress.setValue(0)
             self._progress.show()
@@ -246,7 +244,7 @@ class Freezer:
                 self.doc.openTransaction("Freezer Operation")
                 self._transaction_opened = True
 
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
     # -------------------------------------------------------------
     # RESTORE
@@ -275,9 +273,9 @@ class Freezer:
 
         # Restore cursor
         if self._cursor_set:
-            QtGui.QApplication.restoreOverrideCursor()
+            QtWidgets.QApplication.restoreOverrideCursor()
 
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
     # -------------------------------------------------------------
     # PUBLIC API
@@ -297,12 +295,12 @@ class Freezer:
             if text:
                 self._progress.setLabelText(text)
 
-            QtGui.QApplication.processEvents()
+            QtWidgets.QApplication.processEvents()
 
     def set_status(self, text):
         if self._progress:
             self._progress.setLabelText(text)
-            QtGui.QApplication.processEvents()
+            QtWidgets.QApplication.processEvents()
 
     def cancel_requested(self):
         if self._progress and self.cancel:

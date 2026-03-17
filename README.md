@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<!-- SPDX-FileNotice: Part of the Cubinets addon. -->
+
 # [ ]]] Cubinets
 
 ## 🥥 In a nutshell
@@ -24,21 +27,6 @@ https://foreachidea.github.io/media/Cubinets/concept_demo.mp4
 While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accurately. Using Cubinets you can outsource repetitive tasks to computers, they love it!
 
 Let's put it this way: Cabinet style is a constant - European style, shaker style, you name it. Then there are variables: unit dimensions, material thickness, etc. It only makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different variable values.
-
-
-# 🛠️ Installation
-
-- ✅ Download FreeCAD - <a href="https://www.freecad.org" target="_blank" rel="noopener noreferrer">www.freecad.org</a>
-- ✅ Install FreeCAD
-- ✅ Download Cubinets - <a href="https://github.com/vyt4ut4s/Cubinets/releases/latest" target="_blank" rel="noopener noreferrer">latest release</a>
-- ✅ Extract archive contents to FreeCAD workbenches' folder:
-  - 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/**
-  - 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\\**
-  - 🐧 On **Linux** it is usually **/usr/share/freecad/Mod/**
-    - For snap versions (for instance on Ubuntu) it is **$HOME/snap/freecad/common/Mod/**
-
-💫 That's it!
-
 
 # 👨‍💻 Usage
 

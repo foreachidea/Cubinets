@@ -1,9 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# SPDX-FileNotice: Part of the Cubinets addon for FreeCAD.
+# SPDX-FileNotice: Part of the Cubinets addon.
 
-import FreeCAD as App
-import FreeCADGui as Gui
-from FreeCAD import Spreadsheet
+from FreeCAD import Gui , activeDocument
+
 
 class cmdNewParams:
 
@@ -17,7 +16,7 @@ class cmdNewParams:
 
     def Activated(self):
 
-        doc = App.ActiveDocument
+        doc = activeDocument()
         spreadsheet = doc.addObject("Spreadsheet::Sheet", "args")
         doc.recompute()
         Gui.Selection.addSelection(spreadsheet)
@@ -25,8 +24,4 @@ class cmdNewParams:
 
 
     def IsActive(self):
-
-        return App.ActiveDocument is not None
-
-
-Gui.addCommand("cmdNewParams", cmdNewParams())
+        return not not activeDocument()
