@@ -2,7 +2,7 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 from FreeCAD import Console , Gui , activeDocument
-from PySide import QtCore , QtGui
+from .Qt import QtCore , QtGui
 
 
 class Freezer:

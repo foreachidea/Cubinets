@@ -2,8 +2,8 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 import FreeCAD as App
-from PySide import QtWidgets
 from .Misc import Paths
+from .Qt import QtWidgets
 
 PARAM_PATH = "User parameter:BaseApp/Preferences/Mod/Cubinets"
 
