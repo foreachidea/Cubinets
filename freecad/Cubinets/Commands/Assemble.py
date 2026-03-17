@@ -3,7 +3,7 @@
 
 from FreeCAD import Console , Gui , activeDocument
 
-from ..Spreadsheet import Spreadsheet
+from ..Sheet.Spreadsheet import Spreadsheet
 from ..Document import Document
 
 class cmdAssemble:

@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-from .spreadsheet import Address , Column , Cell , Row
+from . import Address , Column , Sheet , Cell , Row
 
 
-class Spreadsheet:
+class Spreadsheet ( Sheet ):
 
     def __init__(self, fc_sheet):
 

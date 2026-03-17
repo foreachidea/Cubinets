@@ -45,6 +45,9 @@ class Template:
 
     def recompute(self):
 
+        if not self._doc :
+            return
+
         # Force all objects to recompute
         self._doc.recompute()
 
@@ -95,6 +98,9 @@ class Template:
 
     def findSolid(self):
 
+        if not self._doc :
+            return
+
         for obj in self._doc.Objects:
 
             if hasattr(obj, "Shape") and not obj.Shape.isNull():
@@ -105,6 +111,9 @@ class Template:
 
 
     def findSheet(self):
+
+        if not self._doc :
+            return
 
         for obj in self._doc.Objects:
 
@@ -118,6 +127,9 @@ class Template:
     # todo: fix this mess;
     # todo: extractor should really extract Std_Body containing Part::Box and Part::FeaturePython, so user could manipulate further
     def extractVisibleCubes(self):
+
+        if not self._doc :
+            return
 
         def is_visible(obj):
             try:

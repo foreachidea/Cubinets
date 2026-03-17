@@ -2,7 +2,7 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 from FreeCAD import Base , Gui , setActiveDocument
-from .Qt import QtCore
+from .Qt import QtWidgets , QtCore
 
 class UI:
 
@@ -32,7 +32,7 @@ class UI:
 
         # Get MDI area
         mw = Gui.getMainWindow()
-        mdi = mw.centralWidget()
+        mdi : QtWidgets.QMdiArea = mw.centralWidget()
 
         # Look for the subwindow containing this view
         for sub in mdi.subWindowList():
@@ -78,7 +78,8 @@ class UI:
     @staticmethod
     def setViewingAngleAntFitAll():
 
-        view = Gui.ActiveDocument.ActiveView
+        view = Gui.activeView()
+
         r = Base.Rotation(Base.Vector(0,1,0), 45) * Base.Rotation(Base.Vector(1,0,0), -35)
 
         view.viewIsometric()  # optional, to start from default iso

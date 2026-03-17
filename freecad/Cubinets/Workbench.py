@@ -9,16 +9,16 @@ from .Misc import asIcon
 class CubinetsWorkbench ( Gui.Workbench ):
 
     MenuText = 'Cubinets'
-    ToolTip = 'Visualise cabinet assemblies using parametric templates.'
+    ToolTip = 'Visualize cabinet assemblies using parametric templates.'
     Icon = asIcon('Addon')
 
     def Initialize ( self ):
         
         list = [
             'Cubinets_Settings' , 
+            'Cubinets_Sheet' ,
             'Cubinets_Assemble' , 
-            'Cubinets_CutList' ,
-            'Cubinets_Sheet'
+            'Cubinets_CutList'
         ]
         
         self.appendToolbar('Cubinets',list)

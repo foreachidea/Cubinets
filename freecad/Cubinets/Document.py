@@ -25,9 +25,8 @@ class Document:
         rowCount = argSheet.rowCount()
 
         if rowCount == 0:
-
-                Console.PrintMessage("[ ]]] Cubinets: argument sheet has no instructions.\n")
-                return
+            Console.PrintMessage("[ ]]] Cubinets: argument sheet has no instructions.\n")
+            return
 
         with Freezer(profile = "geometry", steps = rowCount + 1, cancel=False) as guiFreezer:
 

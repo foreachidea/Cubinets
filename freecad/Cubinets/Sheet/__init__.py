@@ -3,5 +3,7 @@
 
 from .Address import Address
 from .Column import Column
+from .Type import Sheet
 from .Cell import Cell
 from .Row import Row
+
