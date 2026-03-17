@@ -7,39 +7,41 @@ from .Commands import cmdNewParams , cmdAssemble , cmdSettings , cmdCutList
 from .Misc import asIcon
 
 
-Gui.addCommand('cmdNewParams',cmdNewParams())
-Gui.addCommand('cmdAssemble',cmdAssemble())
-Gui.addCommand('cmdSettings',cmdSettings())
-Gui.addCommand('cmdCutList',cmdCutList())
+Gui.addCommand('Cubinets_Assemble',cmdAssemble())
+Gui.addCommand('Cubinets_Settings',cmdSettings())
+Gui.addCommand('Cubinets_CutList',cmdCutList())
+Gui.addCommand('Cubinets_Sheet',cmdNewParams())
 
 
-class CubinetsWorkbench(Gui.Workbench):
+class CubinetsWorkbench ( Gui.Workbench ):
 
-    MenuText = "Cubinets"
-    ToolTip = "Visualise cabinet assemblies using Parametric Templates"
+    MenuText = 'Cubinets'
+    ToolTip = 'Visualise cabinet assemblies using parametric templates.'
     Icon = asIcon('Addon')
 
-    def Initialize(self):
-
-        # hiding settings for demo; settings must be reviewed
-        self.list = ['cmdSettings',"cmdNewParams", "cmdAssemble", "cmdCutList"]
-        self.appendToolbar("Cubinets", self.list) # creates a new toolbar with your commands
-        self.appendMenu("Cubinets", self.list) # creates a new menu
-
-
-    def Activated(self):
-
-        pass
-
-
-    def Deactivated(self):
-
-        pass
-
-
-    def GetClassName(self):
+    def Initialize ( self ):
         
-        return "Gui::PythonWorkbench"
+        list = [
+            'Cubinets_Settings' , 
+            'Cubinets_Assemble' , 
+            'Cubinets_CutList' ,
+            'Cubinets_Sheet'
+        ]
+        
+        self.appendToolbar('Cubinets',list)
+        self.appendMenu('Cubinets',list)
+
+
+    def Activated ( self ):
+        pass
+
+
+    def Deactivated ( self ):
+        pass
+
+
+    def GetClassName ( self ):
+        return 'Gui::PythonWorkbench'
 
 
 Gui.addWorkbench(CubinetsWorkbench())
