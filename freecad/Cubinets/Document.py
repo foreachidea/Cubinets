@@ -3,6 +3,7 @@
 
 from FreeCAD import Placement , Vector , Console
 
+from .Sheet.Spreadsheet import Spreadsheet
 from .Template import Template
 from .Freezer import Freezer
 from .UI import UI
@@ -57,9 +58,12 @@ class Document:
                         objs = template.extractVisibleCubes()
                         self.addObjects(name, objs)
 
-                        width = arguments[0]
+                        width = arguments[0] if len(arguments) > 0 else None
                         if width is None:
-                            width = sheet.get("B1")
+                            # todo: clean this dirty fix
+                            sheet = Spreadsheet(template.findSheet())
+                            width = sheet.cell("B1").value() 
+
                             if width is None:
                                 width = 0
                             else:
