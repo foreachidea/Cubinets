@@ -4,5 +4,5 @@
 __pycache__
 /ignore
 *.FCBak
-dev_env.bat
-pyrightconfig.json
+/dev_env.bat
+/pyrightconfig.json
