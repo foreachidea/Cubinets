@@ -176,7 +176,8 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 - ✅ Generate Part Cut List
 
 
-## 🔄 Upcoming (v1.0)
+## 🔄 Upcoming (v0.3.0)
+- 🔄 **Array copy object support in Templates - eg.: shelves**
 - 🔄 Complete code rewrite: spaghetti to a readable, scaleable and extendible code
 - 🔄 UX/UI Improvements - Settings Dialogue, Parameter Hints, ...
 - 🔄 New App Features
