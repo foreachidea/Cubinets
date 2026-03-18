@@ -4,13 +4,13 @@
 from FreeCAD import Gui , activeDocument
 
 
-class cmdNewParams:
+class cmdNewArgs:
 
     def GetResources(self):
 
         return {
             "MenuText": "New Sheet",
-            "ToolTip": "Create a new parameter spreadsheet."
+            "ToolTip": "Create a new argument spreadsheet."
         }
 
 

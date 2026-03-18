@@ -11,7 +11,7 @@ class cmdAssemble:
     def GetResources(self):
         return {
             "MenuText": "Assemble",
-            "ToolTip": "Produce an assembly of cabinets using parameters from a selected spreadsheet."
+            "ToolTip": "Produce an assembly of cabinets using arguments from a selected spreadsheet."
         }
 
 
@@ -38,7 +38,7 @@ class cmdAssemble:
 
         if selection is None:
 
-            Console.PrintError("[ ]]] Cubinets: Assembly spreadsheet not found\n")
+            Console.PrintError("[ ]]] Cubinets: Argument spreadsheet not found\n")
             return
 
         argSheet = Spreadsheet(selection)
