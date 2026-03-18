@@ -21,12 +21,12 @@ class cmdAssemble:
 
         if not selections:
 
-            Console.PrintError("[ ]]] Cubinets: No spreadseet selected\n")
+            Console.PrintError("[ ]]] Cubinets: No argument spreadseet selected\n")
             return
 
         if len(selections) > 1:
 
-            Console.PrintError("[ ]]] Cubinets: More than one object selected. Please select one spreadsheet.\n")
+            Console.PrintError("[ ]]] Cubinets: More than one object selected. Please select argument spreadsheet.\n")
             return
 
         selection = selections[0]
