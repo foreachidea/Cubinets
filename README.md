@@ -26,7 +26,7 @@ https://foreachidea.github.io/media/Cubinets/concept_demo.mp4
 
 While humans excel at creativity and handling ambiguity. Computers are strong in processing data quickly and accurately. Using Cubinets you can outsource repetitive tasks to computers, they love it!
 
-Let's put it this way: Cabinet style is a constant - European style, shaker style, you name it. Then there are variables: unit dimensions, material thickness, etc. It only makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different variable values.
+Let's put it this way: Cabinet style is a constant - European style, shaker style, you name it. Then there are variables: unit dimensions, material thickness, etc. It only makes sense to design a Parametric Template for a particular style once and reuse it over and over plugging in different arguments - variable values.
 
 # 👨‍💻 Usage
 
@@ -45,7 +45,7 @@ Let's put it this way: Cabinet style is a constant - European style, shaker styl
 ## Directives and Provided Templates
 
 > [!NOTE]
-> Parameters provided in millimeters.
+> Arguments provided in millimeters (unless stated otherwise).
 
 ### Directives
 
@@ -60,7 +60,7 @@ Let's put it this way: Cabinet style is a constant - European style, shaker styl
 
 🧊 empty row
 
-empty row indicates that user has finished defining the top row of units and is moving on to enter data for the bottom row of units; *in this demo two rows of cabinets supported*
+empty row indicates that user has finished defining the top row of units and is moving on to enter data for the bottom row of units; *in this demo two rows of cabinets supported;*
 
 | | |
 |-|-|
@@ -136,7 +136,7 @@ cubinet drawer	400	700	600	18	140	100	10	20
 
 In order for Cubinets to recognise and correctly interpret your Parametric Templates, it is important to set a standard. This standard is aimed to be optimal practically and intuitive for a human person.
 
-📌 **Parametric Template document must contain a spreadsheet named "params"**. This is short for parameters. The reason it is shortened is that this name will be used in formulas and it is a good idea too keep the formulas as short as possible. Params Spreadsheet is where parameters of the Prametric Template will live. FreeCAD has a Spreadsheet workbench, with tools available to create and manipulate spreadsheets. However, Cubinets only require a basic spreadsheet manipulation and it is recommended to use a shortcuts provided by Cubinets Workbench:
+📌 **Parametric Template document must contain a spreadsheet named "params"**. This is short for parameters. The reason it is shortened is that this name will be used in formulas and it is a good idea too keep the formulas as short as possible for readability. Parameters Spreadsheet is where default values of the unit will live. FreeCAD has a Spreadsheet workbench, with tools available to create and manipulate spreadsheets. However, Cubinets only require a basic spreadsheet manipulation and it is recommended to use a shortcuts provided by Cubinets Workbench:
  - Toolbar button: "New Sheet"; or
  - Menu: Cubinets -> New Sheet.
 
