@@ -15,7 +15,7 @@ class CubinetsWorkbench ( Gui.Workbench ):
     def Initialize ( self ):
         
         list = [
-            'Cubinets_Settings' , 
+            #'Cubinets_Settings' , hidden for demo
             'Cubinets_NewArgs' ,
             'Cubinets_Assemble' , 
             'Cubinets_CutList'
