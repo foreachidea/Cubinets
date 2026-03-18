@@ -2,82 +2,27 @@
 # SPDX-FileNotice: Part of the Cubinets addon.
 
 from collections import defaultdict
-from FreeCAD import Placement , ParamGet , Gui , activeDocument
+from FreeCAD import Console, Placement , ParamGet , Gui , activeDocument
 
 class cmdCutList:
 
     def GetResources(self):
+
         return {
             "MenuText": "Cut List",
             "ToolTip": "Produce a list of parts, group by dimensions."
         }
 
     def Activated(self):
-        DOC = activeDocument()
 
-        # --- Step 1: Create or get Spreadsheet ---
-        '''
-        sheet_name = "Cut List"
-        ss = DOC.getObject(sheet_name)
-        if ss is None:
-            ss = DOC.addObject("Spreadsheet::Sheet", sheet_name)
-        ss.clearAll()  # remove old data
-        '''
-        ss = DOC.addObject("Spreadsheet::Sheet", "cut list")
-        # todo: if file exsists, confirm overwrite
-
-        '''
-        # --- Step 2: Prepare header row ---
-        headers = ["Qty", "Section", "Depth"]
-        for col, h in enumerate(headers):
-            ss.set(f"{chr(65+col)}1", h)
-
-        # --- Step 3: Collect parts (ignore compounds) ---
-        parts = defaultdict(int)
-
-        for obj in DOC.Objects:
-            # --- Collect geometry-bearing objects ---
-            if not (
-                obj.isDerivedFrom("Part::Feature")
-                or obj.isDerivedFrom("PartDesign::Feature")
-            ):
-                continue
-
-            # Bounding box dimensions
-            bb = obj.Shape.BoundBox
-            dims = sorted([bb.XLength, bb.YLength, bb.ZLength])
-            width = round(dims[1], 3)
-            height = round(dims[2], 3)
-            depth = round(dims[0], 3)
-
-            key = (width, height, depth)
-            parts[key] += 1
-
-        # --- Step 4: Write to spreadsheet ---
-        row = 2
-        for (width, height, depth), qty in sorted(parts.items(), key=lambda x: x[0][2]):  # sort by depth
-            section = f"{width} x {height}"
-            ss.set(f"A{row}", str(qty))
-            ss.set(f"B{row}", section)
-            ss.set(f"C{row}", str(depth))
-            row += 1
-        
-        DOC.recompute()
-        print(f"Cut list written to spreadsheet '{sheet_name}'")
-        '''
-
+        doc = activeDocument()
+        cutlist = doc.addObject("Spreadsheet::Sheet", "cut list")
         headers = ["Width", "Height", "Qty", "Thickness"]
-        for col, h in enumerate(headers):
-            ss.set(f"{chr(65+col)}1", h)
 
-        # First row bold/right aligned
-        '''
-        for col in range(1, len(headers) + 1):
-            addr = ss.getCellAddress("A1")     # get an App::CellAddress for A1
-            cell = ss.getCell(addr)            # get the cell object
-            cell.setStyle({"Bold", "AlignRight"})  # set bold + right align
-            ss.execute()
-        '''
+        for column, header in enumerate(headers):
+
+            cutlist.set(f"{chr(65 + column)}1", header)
+
 
         parts = defaultdict(int)
 
@@ -87,15 +32,15 @@ class cmdCutList:
             #"yz": (2, 0, 1),
         }
         
-        params = ParamGet("User parameter:BaseApp/Preferences/Mod/Cubinets")
-        plane = params.GetString("WorkingPlane", "xy")
+        settings = ParamGet("User parameter:BaseApp/Preferences/Mod/Cubinets")
+        plane = settings.GetString("WorkingPlane", "xy")
         i_w, i_h, i_d = AXIS_MAP[plane]
-        sort = params.GetBool("CutlistSortByDimension", False)
-        group = params.GetBool("CutlistGroupByThickness", True)
+        sort = settings.GetBool("CutlistSortByDimension", False)
+        group = settings.GetBool("CutlistGroupByThickness", True)
 
         row = 2
 
-        for obj in DOC.Objects:
+        for obj in doc.Objects:
             # --- Collect geometry-bearing objects ---
             if not (
                 obj.isDerivedFrom("Part::Feature")
@@ -111,41 +56,43 @@ class cmdCutList:
 
             obj.Placement = ogPlacement
 
-            dims = [bb.XLength, bb.YLength, bb.ZLength]
+            dimensions = [bb.XLength, bb.YLength, bb.ZLength]
             
             if sort:
-                dims = sorted(dims, reverse=True)
-                width = round(dims[0], 3)
-                height = round(dims[1], 3)
-                depth = round(dims[2], 3)
+                dimensions = sorted(dimensions, reverse=True)
+                width = round(dimensions[0], 3)
+                height = round(dimensions[1], 3)
+                depth = round(dimensions[2], 3)
             else:
-                width = round(dims[i_w], 3)
-                height = round(dims[i_h], 3)
-                depth = round(dims[i_d], 3)
+                width = round(dimensions[i_w], 3)
+                height = round(dimensions[i_h], 3)
+                depth = round(dimensions[i_d], 3)
 
             if group:
                 key = (width, height, depth)
                 parts[key] += 1
             else:
-                ss.set(f"A{row}", str(width))
-                ss.set(f"B{row}", str(height))
-                ss.set(f"C{row}", "1")
-                ss.set(f"D{row}", str(depth))
+                cutlist.set(f"A{row}", str(width))
+                cutlist.set(f"B{row}", str(height))
+                cutlist.set(f"C{row}", "1")
+                cutlist.set(f"D{row}", str(depth))
                 row += 1
 
         if group:
             for (width, height, depth), qty in sorted(parts.items(), key=lambda x: x[0][2]):
-                ss.set(f"A{row}", str(width))
-                ss.set(f"B{row}", str(height))
-                ss.set(f"C{row}", str(qty))
-                ss.set(f"D{row}", str(depth))
+                cutlist.set(f"A{row}", str(width))
+                cutlist.set(f"B{row}", str(height))
+                cutlist.set(f"C{row}", str(qty))
+                cutlist.set(f"D{row}", str(depth))
                 row += 1
         
-        DOC.recompute()
-        Gui.Selection.addSelection(ss)
-        Gui.ActiveDocument.setEdit(ss)
-        #print(f"Cut list written to spreadsheet '{sheet_name}'")
+        doc.recompute()
+        Gui.Selection.addSelection(cutlist)
+        Gui.ActiveDocument.setEdit(cutlist)
+        
+        Console.PrintMessage("[ ]]] Cubinets: cut list produced!\n")
 
 
     def IsActive(self):
+
         return not not activeDocument()
