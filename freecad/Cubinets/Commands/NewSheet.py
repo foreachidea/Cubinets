@@ -4,20 +4,20 @@
 from FreeCAD import Gui , activeDocument
 
 
-class cmdNewArgs:
+class cmdNewSheet:
 
     def GetResources(self):
 
         return {
             "MenuText": "New Sheet",
-            "ToolTip": "Create a new argument spreadsheet."
+            "ToolTip": "Create a new spreadsheet."
         }
 
 
     def Activated(self):
 
         doc = activeDocument()
-        spreadsheet = doc.addObject("Spreadsheet::Sheet", "args")
+        spreadsheet = doc.addObject("Spreadsheet::Sheet", "spreadsheet")
         doc.recompute()
         Gui.Selection.addSelection(spreadsheet)
         Gui.ActiveDocument.setEdit(spreadsheet)

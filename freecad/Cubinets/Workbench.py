@@ -16,7 +16,7 @@ class CubinetsWorkbench ( Gui.Workbench ):
         
         list = [
             #'Cubinets_Settings' , hidden for demo
-            'Cubinets_NewArgs' ,
+            'Cubinets_NewSheet' ,
             'Cubinets_Assemble' , 
             'Cubinets_CutList'
         ]
