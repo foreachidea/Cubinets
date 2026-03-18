@@ -7,8 +7,8 @@ from .Type import Sheet
 
 class Row:
 
-    _sheet : Sheet
     _index : int
+    _sheet : Sheet
 
     def __init__(self, sheet: Sheet, index: int):
 

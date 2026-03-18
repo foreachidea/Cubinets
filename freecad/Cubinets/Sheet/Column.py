@@ -7,7 +7,7 @@ from .Type import Sheet
 class Column:
 
     _label : str
-    _self : Sheet
+    _sheet : Sheet
     
     def __init__(self, sheet: Sheet, label: str):
 
