@@ -210,7 +210,7 @@ class Freezer:
 
             self._progress = QtWidgets.QProgressDialog(
                 "Processing...",
-                "Cancel" if self.cancel else '',
+                "Cancel" if self.cancel else None,
                 0,
                 maximum,
                 self.mw
