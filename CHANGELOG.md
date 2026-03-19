@@ -4,6 +4,19 @@
 
 - pipedreams
 
+## [0.1.0-demo.1] - 2026-03-19
+
+### Updated
+- ui messages
+- icon
+
+### Fixed
+- retrieving unit width from template if argument not provided by user
+- removed illegally showing assemble progress bar cancel button
+- conforming to fc's module structure
+- conforming to fc's licensing anotation requirements
+- licensing ambiguity
+
 ## [0.0.0-demo.1] - 2026-03-03
 
 ### Added
