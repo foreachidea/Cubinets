@@ -4,7 +4,7 @@
 
 - pipedreams
 
-## [0.1.0-demo.1] - 2026-03-19
+## [0.1.0-demo] - 2026-03-19
 
 ### Updated
 - ui messages
