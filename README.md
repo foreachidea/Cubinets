@@ -190,10 +190,10 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 📌 Panel dimensions **must** be entered in the following order: width, height, depth. Create a panel of a desired dimensions in front of you, then position and rotate it into the final desired position.
 
 📌 Parametric Templates must be saved to the following location on your machine:
-- 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/Cubinets/templates**
-- 🪟 On **Windows** it is usually **C:\Program Files\FreeCAD\Mod\Cubinets\templates**
-- 🐧 On **Linux** it is usually **/usr/share/freecad/Mod/Cubinets/templates**
-  - For snap versions (for instance on Ubuntu) it is **$HOME/snap/freecad/common/Mod/Cubinets/templates**
+- 🍎 On **macOS** it is usually **/Applications/FreeCAD/Mod/Cubinets/freecad/Cubinets/Resources/Templates**
+- 🪟 On **Windows** it is usually **%APPDATA%\FreeCAD\Mod\Cubinets\freecad\Cubinets\Resources\Templates**
+- 🐧 On **Linux** it is usually **/usr/share/freecad/Mod/Cubinets/freecad/Cubinets/Resources/Templates**
+  - For snap versions (for instance on Ubuntu) it is **$HOME/snap/freecad/common/Mod/Cubinets/freecad/Cubinets/Resources/Templates**
 
 
 # 🎯 Roadmap
