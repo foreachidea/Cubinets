@@ -5,3 +5,4 @@ from .Assemble import cmdAssemble
 from .Settings import cmdSettings
 from .CutList import cmdCutList
 from .NewSheet import cmdNewSheet
+from .HotReload import cmdHotReload
