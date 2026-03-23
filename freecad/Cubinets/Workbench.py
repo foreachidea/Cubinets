@@ -15,14 +15,15 @@ class CubinetsWorkbench ( Gui.Workbench ):
     def Initialize ( self ):
         
         list = [
-            #'Cubinets_Settings' , hidden for demo
             'Cubinets_NewSheet' ,
             'Cubinets_Assemble' , 
             'Cubinets_CutList'
+            #'Cubinets_Settings' hidden for demo
         ]
         
         self.appendToolbar('Cubinets',list)
         self.appendMenu('Cubinets',list)
+
 
         # in dev environment show Hot Reload button
         # to run latest workbench code edition

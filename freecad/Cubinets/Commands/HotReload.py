@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileNotice: Part of the Cubinets addon.
 
-from FreeCAD import Console, Gui, ParamGet
-
-#from ..Workbench import CubinetsWorkbench
+from FreeCAD import Console, ParamGet
 
 import importlib
 import sys
