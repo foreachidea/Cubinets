@@ -195,9 +195,9 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 - 🔄 New Templates
 
 
-## 💡 Ideas
-- 💡 Quality Visual Renderings
-- 💡 CNC automation
+##  👁 Vision
+-  👁 Quality Visual Renderings
+-  👁 CNC automation
 
 
 # ❤️ Donate
@@ -206,7 +206,7 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
  - ☕ If you like this software, buy me a coffee.
  - 🧩 If you find it useful in your professional activities, consider donating a larger sum. 
 
-**donate button**
+**this is not a donate button. might implement later**
 
 
 # 📝 License
