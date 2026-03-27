@@ -82,7 +82,7 @@ empty row indicates that user has finished defining the top row of units and is 
 
 🧊 `cubinet`
 
-`cubinet` is a one door European style cabinet. The design has a door margin constant of 2 mm on each edge.
+`cubinet` is a single door European style cabinet. The design has a door margin constant of 2 mm on each edge.
 
 | | | | | |
 |-|-|-|-|-|
@@ -91,7 +91,7 @@ empty row indicates that user has finished defining the top row of units and is 
 
 🧊 `cubinet double`
 
-`cubinet double` is a two door European style cabinet. The design has a door margin of 2 mm on each edge.
+`cubinet double` is a double door European style cabinet. The design has a door margin of 2 mm on each edge.
 
 | | | | | |
 |-|-|-|-|-|
