@@ -5,7 +5,7 @@
 
 ## 🥥 In a nutshell
 
-Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design process. Visualise Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.
+Cubinets is a FreeCAD Workbench for furniture makers, developed to simplify and accelerate design process. Visualize Cabinet Assemblies in minutes using Parametric Templates and Generate Cut Lists instantly.
 
 [![demo](https://img.shields.io/badge/version-v0.1.0--demo-green)](https://github.com/foreachidea/Cubinets/releases/latest)
 
@@ -47,8 +47,8 @@ Let's put it this way: Cabinet style is a constant - European style, shaker styl
 - 🧊 Create a new Document (File -> New or Ctrl + N, etc.)
 - 🧊 Switch to Cubinets Workbench (View -> Workbench -> Cubinets, etc.)
 
-- 🧊 Create a Spreadsheet (Cubinets -> New Sheet)
-- 🧊 Enter data: Directives and Templates; use parameters or omit for defaults 
+- 🧊 Create a new Spreadsheet (Cubinets -> New Sheet)
+- 🧊 Enter data: Directives and Templates; use parameters or omit to use default Template values 
 - 🧊 Produce Unit Assembly (Cubinets -> Assemble)
 - 🧊 Produce a Cut List (Cubinets -> Cutlist)
 
