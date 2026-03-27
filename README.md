@@ -191,7 +191,7 @@ Use of other Columns is unconstrained - user is free to use it (or not) for note
 - 🔄 Complete code rewrite: spaghetti to a readable, scaleable and extendible code
 - 🔄 UX/UI Improvements - Settings Dialogue, Parameter Hints, ...
 - 🔄 New App Features
-- 🔄 New Template Features - count objects, eg.: shelves
+- 🔄 New Template Features
 - 🔄 New Templates
 
 
